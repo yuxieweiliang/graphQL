@@ -1,0 +1,78 @@
+* {
+  box-sizing: border-box;
+}
+header {
+  height: 40px;
+  background: #3369cc;
+  .page-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #fff;
+  }
+}
+
+.ant-carousel .slick-slide {
+  text-align: center;
+  height: 500px;
+  line-height: 500px;
+  background: #364d79;
+  overflow: hidden;
+}
+.ant-carousel .slick-slide h3 {
+  color: #fff;
+}
+// 企业优势
+.hospital-advantage {
+  background: #fafafa;
+  padding: 20px 0;
+  .icon-box {
+    float: left;
+    width: 120px;
+    height: 200px;
+    padding: 6px;
+    margin: 6px;
+    background: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 0 0 6px #fafafa inset;
+    cursor: pointer;
+    transition: ease 1s;
+    &:hover {
+      background: #1890ff;
+      .icon-context {
+        .fa {
+          color: #666;
+          background: #fafafa !important;
+          transition: ease .4s;
+        }
+      }
+    }
+    .icon-context {
+      width: 100%;
+      text-align: center;
+      padding-top: 20px;
+
+      .fa {
+        color: #fafafa;
+        font-size: 36px;
+        position: relative;
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+        line-height: 80px;
+        border-radius: 100%;
+        background: #4e84ff;
+        text-align: center;
+      }
+    }
+    .icon-text {
+      padding-top: 20px;
+      text-align: center;
+    }
+  }
+}
+.hospital-product {
+  padding-top: 20px;
+}

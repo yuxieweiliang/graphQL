@@ -1,0 +1,43 @@
+{
+  "name": "webpack-study",
+  "version": "1.0.0",
+  "description": "study for webpack",
+  "main": "yufei.xue",
+  "scripts": {
+    "dev": "webpack-dev-server --port 8089 --open --watch",
+    "build": "webpack",
+    "test": "npm run start"
+  },
+  "keywords": [
+    "webpack",
+    "study"
+  ],
+  "author": "yufei.xue",
+  "license": "ISC",
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.16",
+    "css-loader": "^0.28.4",
+    "file-loader": "^0.11.2",
+    "html-webpack-plugin": "^2.29.0",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
+    "postcss-loader": "^2.0.10",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.2.0",
+    "webpack-dev-server": "^2.5.1",
+    "webpack-manifest-plugin": "^1.1.2"
+  },
+  "dependencies": {
+    "antd": "^3.1.6",
+    "isomorphic-fetch": "^2.2.1",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  }
+}

@@ -1,0 +1,17 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(name="apple-mobile-web-app-capable", content="yes")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+    link(href= 'weui/dist/style/weui.css', rel= 'stylesheet', type= 'text/css')
+    link(href= 'frozenui/dist/css/frozen.css', rel= 'stylesheet', type= 'text/css')
+    link(href= 'react-weui/build/packages/react-weui.css', rel= 'stylesheet', type= 'text/css')
+    link(href= 'aui-master/css/aui.2.0.css', rel= 'stylesheet', type= 'text/css')
+    link(href= 'font-awesome/css/font-awesome.min.css', rel= 'stylesheet', type= 'text/css')
+  body
+    div(id="root")!=JSON.parse(json)
+  each href in css
+    link(href= href, rel= 'stylesheet', type= 'text/css')
+  each src in script
+    script(src= src)
