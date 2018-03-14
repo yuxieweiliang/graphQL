@@ -26,20 +26,23 @@ class DialogDemo extends React.Component {
     var popup = new auiPopup();
     // popup.show(document.getElementById("top-right"))
   }
+  returnApp() {
+    window.location.href = '/'
+  }
   render() {
     return (
       <div className="aui-content">
         <header className="aui-bar aui-bar-nav">
           <a className="aui-pull-left aui-btn aui-btn-outlined">
-            {/*<i className="aui-iconfont aui-icon-home"/>*/}
+            <i className="fa fa-angle-left" onClick={this.returnApp}/>
           </a>
-          <div className="aui-title">美丽故事</div>
+          <div className="aui-title">产品详情</div>
           <a className="aui-pull-right aui-btn aui-btn-outlined">
             <i className="fa fa-align-justify"  aui-popup-for="top-right"/>
           </a>
         </header>
         <article className="grid">
-          <div className="ui-slider" style={{height: 200}}>
+          <div className="ui-slider" style={{height: 320}}>
             <ul className="ui-slider-content">
               <li className=""><img src="https://gdp.alicdn.com/imgextra/i1/1913312592/TB2gO85XEOWBKNjSZKzXXXfWFXa_!!1913312592.jpg"/></li>
               <li className=""><img src="http://i.gtimg.cn/aoi/sola/20141201154941_GhAN4FCMIF.jpg"/></li>
@@ -50,9 +53,30 @@ class DialogDemo extends React.Component {
         <section className="aui-grid aui-margin-b-15">
           <div className="aui-card-list">
             <div className="aui-card-list-header">
-              卡片布局头部区域
+              這里是產品的名字
             </div>
             <div className="aui-card-list-content-padded">
+              内容区域，卡片列表布局样式可以实现APP中常见的各类样式
+              内容区域，卡片列表布局样式可以实现APP中常见的各类样式
+              内容区域，卡片列表布局样式可以实现APP中常见的各类样式
+              内容区域，卡片列表布局样式可以实现APP中常见的各类样式
+              内容区域，卡片列表布局样式可以实现APP中常见的各类样式
+              内容区域，卡片列表布局样式可以实现APP中常见的各类样式
+              内容区域，卡片列表布局样式可以实现APP中常见的各类样式
+              内容区域，卡片列表布局样式可以实现APP中常见的各类样式
+              内容区域，卡片列表布局样式可以实现APP中常见的各类样式
+              内容区域，卡片列表布局样式可以实现APP中常见的各类样式
+              内容区域，卡片列表布局样式可以实现APP中常见的各类样式
+              内容区域，卡片列表布局样式可以实现APP中常见的各类样式
+              内容区域，卡片列表布局样式可以实现APP中常见的各类样式
+              内容区域，卡片列表布局样式可以实现APP中常见的各类样式
+              内容区域，卡片列表布局样式可以实现APP中常见的各类样式
+              内容区域，卡片列表布局样式可以实现APP中常见的各类样式
+              内容区域，卡片列表布局样式可以实现APP中常见的各类样式
+              内容区域，卡片列表布局样式可以实现APP中常见的各类样式
+              内容区域，卡片列表布局样式可以实现APP中常见的各类样式
+              内容区域，卡片列表布局样式可以实现APP中常见的各类样式
+              内容区域，卡片列表布局样式可以实现APP中常见的各类样式
               内容区域，卡片列表布局样式可以实现APP中常见的各类样式
             </div>
             {/*<div className="aui-card-list-footer">

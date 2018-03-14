@@ -26,6 +26,12 @@ class DialogDemo extends React.Component {
     var popup = new auiPopup();
     // popup.show(document.getElementById("top-right"))
   }
+  toProduct() {
+    window.location.href = 'products'
+  }
+  toEnterprise() {
+    window.location.href = 'enterprise'
+  }
   render() {
     return (
       <div className="aui-content">
@@ -56,7 +62,7 @@ class DialogDemo extends React.Component {
             </div>
             <div className="aui-col-xs-3">
               <i className="aui-iconfont aui-icon-gear"></i>
-              <div className="aui-grid-label">设置</div>
+              <div className="aui-grid-label" onClick={this.toEnterprise}>设置</div>
             </div>
             <div className="aui-col-xs-3">
               <i className="fa fa-diamond"></i>
@@ -85,13 +91,13 @@ class DialogDemo extends React.Component {
                 <div className="aui-list-item-title">电子</div>
                 <p>随便写点拼配的接受</p>
                 <div className="aui-row aui-row-padded">
-                  <div className="aui-col-xs-4">
+                  <div className="aui-col-xs-4" onClick={this.toProduct}>
                     <img src="aui-master/image/demo1.png"/>
                   </div>
-                  <div className="aui-col-xs-4">
+                  <div className="aui-col-xs-4" onClick={this.toProduct}>
                     <img src="aui-master/image/demo2.png" />
                   </div>
-                  <div className="aui-col-xs-4">
+                  <div className="aui-col-xs-4" onClick={this.toProduct}>
                     <img src="aui-master/image/demo3.png" />
                   </div>
                 </div>
@@ -102,13 +108,13 @@ class DialogDemo extends React.Component {
                 <div className="aui-list-item-title aui-row">护肤</div>
                 <p>随便写点拼配的接受</p>
                 <div className="aui-row aui-row-padded">
-                  <div className="aui-col-xs-4">
+                  <div className="aui-col-xs-4" onClick={this.toProduct}>
                     <img src="aui-master/image/demo1.png"/>
                   </div>
-                  <div className="aui-col-xs-4">
+                  <div className="aui-col-xs-4" onClick={this.toProduct}>
                     <img src="aui-master/image/demo2.png" />
                   </div>
-                  <div className="aui-col-xs-4">
+                  <div className="aui-col-xs-4" onClick={this.toProduct}>
                     <img src="aui-master/image/demo3.png" />
                   </div>
                 </div>

@@ -9,7 +9,7 @@ export default function(app) {
     noInfo: false,
 
     // display nothing to the console 不在控制台显示
-    quiet: true,
+    quiet: false,
 
     // switch into lazy mode  切换到懒惰模式
     // that means no watching, but recompilation on every request 没有监视，每次请求时编译

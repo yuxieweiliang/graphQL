@@ -10,43 +10,22 @@ class DialogDemo extends React.Component {
   }
 
   componentDidMount() {
-    func.didMount();
-    console.log('document.getElementById("aui-slide3")');
-    var slide = new auiSlide({
-      container: document.getElementById("aui-slide3"), //容器
-      // "width":300, //宽度
-      "height":300, //高度
-      "speed":500, //速度
-      "autoPlay": 3000, //自动播放
-      "loop":true,//是否循环
-      "pageShow":true,//是否显示分页器
-      "pageStyle":'line', //分页器样式，分dot,line
-      'dotPosition':'center' //当分页器样式为dot时控制分页器位置，left,center,right
-    });
-    var popup = new auiPopup();
-    // popup.show(document.getElementById("top-right"))
+  }
+  returnApp() {
+    window.location.href = '/'
   }
   render() {
     return (
       <div className="aui-content">
         <header className="aui-bar aui-bar-nav">
           <a className="aui-pull-left aui-btn aui-btn-outlined">
-            {/*<i className="aui-iconfont aui-icon-home"/>*/}
+            <i className="fa fa-angle-left" onClick={this.returnApp}/>
           </a>
-          <div className="aui-title">美丽故事</div>
+          <div className="aui-title">企业介绍</div>
           <a className="aui-pull-right aui-btn aui-btn-outlined">
             <i className="fa fa-align-justify"  aui-popup-for="top-right"/>
           </a>
         </header>
-        <article className="grid">
-          <div className="ui-slider" style={{height: 200}}>
-            <ul className="ui-slider-content">
-              <li className=""><img src="https://gdp.alicdn.com/imgextra/i1/1913312592/TB2gO85XEOWBKNjSZKzXXXfWFXa_!!1913312592.jpg"/></li>
-              <li className=""><img src="http://i.gtimg.cn/aoi/sola/20141201154941_GhAN4FCMIF.jpg"/></li>
-              <li className="current"><img src="http://i.gtimg.cn/aoi/sola/20141201154939_LZJZBbo7ET.jpg"/></li>
-            </ul>
-          </div>
-        </article>
         <section className="aui-grid aui-margin-b-15">
           <div className="aui-card-list">
             <div className="aui-card-list-header aui-card-list-user aui-border-b">
@@ -62,10 +41,8 @@ class DialogDemo extends React.Component {
             <div className="aui-card-list-content-padded">
               <img src="http://www.auicss.com/aui2.0/image/l2.png" />
             </div>
-            <div className="aui-card-list-footer aui-border-t">
-              <div><i className="aui-iconfont aui-icon-note"></i> 666</div>
-              <div><i className="aui-iconfont aui-icon-laud"></i> 888</div>
-              <div><i className="aui-iconfont aui-icon-star"></i> 888</div>
+            <div className="aui-card-list-content-padded">
+              内容区域，卡片列表布局样式可以实现APP中常见的各类样式
             </div>
           </div>
           <div className="aui-popup aui-popup-top-right" style={{top: 50}} id="top-right">
