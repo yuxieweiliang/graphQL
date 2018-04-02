@@ -23,7 +23,7 @@ class IndexPage extends Component {
             defaultSelectedKeys={['1']}
             style={{ lineHeight: '40px' }}
           >
-            <Menu.Item key="1">网站首页</Menu.Item>
+            <Menu.Item key="1">网站fdsafa首页</Menu.Item>
             <Menu.Item key="2">产品分类</Menu.Item>
             <Menu.Item key="3">新闻资讯</Menu.Item>
             <Menu.Item key="4">关于我们</Menu.Item>

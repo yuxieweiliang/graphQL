@@ -35,7 +35,7 @@ class IndexPage extends Component {
             style={{ lineHeight: '40px' }}
           >
             <Menu.Item key="1">网站首页</Menu.Item>
-            <Menu.Item key="2">产品分类</Menu.Item>
+            <Menu.Item key="2">产品分类fdsafdsa</Menu.Item>
             <Menu.Item key="3">新闻资讯</Menu.Item>
             <Menu.Item key="4">关于我们</Menu.Item>
           </Menu>
