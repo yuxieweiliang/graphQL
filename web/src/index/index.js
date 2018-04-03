@@ -43,10 +43,10 @@ class IndexPage extends Component {
         <Layout>
           <Content style={{ background: '#fff', padding: 0, margin: 0 }}>
             <Carousel autoplay>
-              <div><img src="https://gdp.alicdn.com/imgextra/i1/1913312592/TB2gO85XEOWBKNjSZKzXXXfWFXa_!!1913312592.jpg" alt=""/></div>
-              <div><img src="https://gdp.alicdn.com/imgextra/i1/1913312592/TB2gO85XEOWBKNjSZKzXXXfWFXa_!!1913312592.jpg" alt=""/></div>
-              <div><img src="https://gdp.alicdn.com/imgextra/i1/1913312592/TB2gO85XEOWBKNjSZKzXXXfWFXa_!!1913312592.jpg" alt=""/></div>
-              <div><img src="https://gdp.alicdn.com/imgextra/i1/1913312592/TB2gO85XEOWBKNjSZKzXXXfWFXa_!!1913312592.jpg" alt=""/></div>
+              <div><img src={require('../../public/image/banner.jpg')} alt=""/></div>
+              <div><img src={require('../../public/image/banner.jpg')} alt=""/></div>
+              <div><img src={require('../../public/image/banner.jpg')} alt=""/></div>
+              <div><img src={require('../../public/image/banner.jpg')} alt=""/></div>
             </Carousel>
             <Row className="hospital-advantage">
               <Col md={{ span: 24 }} lg={{ span: 20, offset: 2 }}>
@@ -55,7 +55,7 @@ class IndexPage extends Component {
             </Row>
             <Row className="hospital-advantage">
               <Col md={{ span: 24 }} lg={{ span: 20, offset: 2 }}>
-                <div className="poster" style={{height: 200, overflow: 'hidden'}}><img src="https://gdp.alicdn.com/imgextra/i4/1913312592/TB2.8.aX7yWBuNjy0FpXXassXXa_!!1913312592.jpg" style={{width: '100%'}} alt=""/></div>
+                <div className="poster" style={{height: 200, overflow: 'hidden'}}><img src={require('../../public/image/banner.jpg')} style={{width: '100%'}} alt=""/></div>
               </Col>
             </Row>
 
@@ -69,44 +69,44 @@ class IndexPage extends Component {
               <Col md={{ span: 24 }} lg={{ span: 20, offset: 2 }} style={{display: 'flex', flexFlow: 'wrap'}}>
                 <Card
                   hoverable
-                  style={{ width: 200, margin: '4px' }}
-                  cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}>
+                  style={{ width:  'calc(25% - 8px)', margin: '4px' }}
+                  cover={<img alt="example" src={require('../../public/image/01.png')} />}>
                   <Meta title="Europe Street beat" description="www.instagram.com"/>
                 </Card>
                 <Card
                   hoverable
-                  style={{ width: 200, margin: '4px' }}
-                  cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}>
+                  style={{ width:  'calc(25% - 8px)', margin: '4px' }}
+                  cover={<img alt="example" src={require('../../public/image/02.png')} />}>
                   <Meta title="Europe Street beat" description="www.instagram.com"/>
                 </Card>
                 <Card
                   hoverable
-                  style={{ width: 200, margin: '4px' }}
-                  cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}>
+                  style={{ width:  'calc(25% - 8px)', margin: '4px' }}
+                  cover={<img alt="example" src={require('../../public/image/01.png')} />}>
                   <Meta title="Europe Street beat" description="www.instagram.com"/>
                 </Card>
                 <Card
                   hoverable
-                  style={{ width: 200, margin: '4px' }}
-                  cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}>
+                  style={{ width:  'calc(25% - 8px)', margin: '4px' }}
+                  cover={<img alt="example" src={require('../../public/image/02.png')} />}>
                   <Meta title="Europe Street beat" description="www.instagram.com"/>
                 </Card>
                 <Card
                   hoverable
-                  style={{ width: 200, margin: '4px' }}
-                  cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}>
+                  style={{ width: 'calc(25% - 8px)', margin: '4px' }}
+                  cover={<img alt="example" src={require('../../public/image/01.png')} />}>
                   <Meta title="Europe Street beat" description="www.instagram.com"/>
                 </Card>
                 <Card
                   hoverable
-                  style={{ width: 200, margin: '4px' }}
-                  cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}>
+                  style={{ width:  'calc(25% - 8px)', margin: '4px' }}
+                  cover={<img alt="example" src={require('../../public/image/01.png')} />}>
                   <Meta title="Europe Street beat" description="www.instagram.com"/>
                 </Card>
                 <Card
                   hoverable
-                  style={{ width: 200, margin: '4px' }}
-                  cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}>
+                  style={{ width:  'calc(25% - 8px)', margin: '4px' }}
+                  cover={<img alt="example" src={require('../../public/image/02.png')} />}>
                   <Meta title="Europe Street beat" description="www.instagram.com"/>
                 </Card>
               </Col>

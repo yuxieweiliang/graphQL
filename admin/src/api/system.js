@@ -1,16 +1,18 @@
-import { common } from './type/type'
-/**
- * 登陆
- */
+import { system } from './type/type'
+
 export default {
-  login: function (option) {
-    var _this = this;
+  /**
+   * 登陆
+   */
+  login: function (params) {
+    return this.fetch.get({url: system.login, params})
+  },
 
-    return this.Ajax.get(common.getLoginToken, option)
-      .then(function(data) {
-
-        return data
-      })
+  /**
+   * 注册
+   */
+  register: function (option) {
+    return this.fetch.post({url: system.register}, option)
   }
 }
 

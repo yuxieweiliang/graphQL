@@ -1,15 +1,7 @@
-import mongoose, { Schema } from 'mongoose';
-import './schemas'
-// 连接数据库
-let db = mongoose.connect("mongodb://localhost/test");
-
-
-db.connection.on("error", function (error) {
-  console.log("数据库连接失败：" + error);
+// 入口，引入，可以使用es6语法
+// require('babel-core/register');
+require('babel-register')({
+  presets: ['es2015', 'react', 'stage-0', 'babel-polyfill'],
+  /*plugins: ["transform-decorators-legacy", "transform-es2015-modules-commonjs"]*/
 });
-db.connection.on("open", function () {
-  console.log("------数据库连接成功！------");
-});
-
-export default db;
-///     forever  nodemon
+require('./inti');

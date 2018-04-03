@@ -15,6 +15,7 @@ use
 other
 dist
 mong
+db
 bower_components
 .idea
 *.docx

@@ -3,15 +3,24 @@
  */
 const createApi = function(common) {
   return function(api) {
-    return '/api/' + common + '/' + api
+    return common + '/' + api
   }
 };
 
 /**
  * 公共api
  */
-const commonRoot = createApi('common');
-export const common = {
-  postImg: commonRoot('update-img'),
-  postImg2: commonRoot('update-img2'),
+const systemRoot = createApi('system');
+export const system = {
+  login: systemRoot('login'),
+  register: systemRoot('register'),
+};
+
+/**
+ * 公共api
+ */
+const userRoot = createApi('user');
+export const user = {
+  login: userRoot('login'),
+  register: userRoot('register'),
 };

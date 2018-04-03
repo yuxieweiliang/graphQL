@@ -1,12 +1,11 @@
 import React from 'react'
 import config from './config'
-import fetch from './fetch'
+import Fetch from './fetch'
 import cookie from './cookie'
 import method from './util'
 import api from '../api'
 
 
-console.log(api);
 class RootView extends React.Component{
   constructor(props) {
     super(props);
@@ -18,7 +17,7 @@ class RootView extends React.Component{
 
 
     // 请求方法
-    this.fetch = fetch;
+    this.fetch = new Fetch;
 
     // 全局工具函数
     this.method = method;

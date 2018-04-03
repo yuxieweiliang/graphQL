@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import './login.css'
+import React from 'react';
+import RootView from '../../script/common'
 import func from './behavior'
-import RootView from '../script/common'
+import './login.css'
 
 
 // 进行组装
@@ -12,6 +12,7 @@ export default class extends RootView {
   }
 
   render() {
+
     return(<div className="signinpanel">
       <div className="row">
         <div className="col-sm-7">
@@ -35,10 +36,10 @@ export default class extends RootView {
           <form method="post" action="index.html">
             <h4 className="no-margins">登录：</h4>
             <p className="m-t-md">登录后台管理界面</p>
-            <input type="text" onChange={(e) => this.changeUsername(e)} className="form-control uname" placeholder="用户名" />
-            <input type="password" onChange={(e) => this.changePassword(e)} className="form-control pword m-b" placeholder="密码" />
+            <input type="text" onChange={this.changeUsername} className="form-control uname" placeholder="用户名" />
+            <input type="password" onChange={this.changePassword} className="form-control pword m-b" placeholder="密码" />
             {/*<a href="">忘记密码了？</a>*/}
-            <button type="button" className="btn btn-success btn-block">登录</button>
+            <button type="button" onClick={this.login} className="btn btn-success btn-block">登录</button>
           </form>
         </div>
       </div>

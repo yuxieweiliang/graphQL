@@ -1,16 +1,16 @@
 const path = require('path');
 const webpack = require('webpack');
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const publicPath = path.resolve(__dirname, 'dist');
 
 
-module.exports = {
+const config = {
   // 坑爹的输出文件顺序竟然是按照字母排序来的
   entry: {
-    'js/app': './src/home',
-    'js/product': './src/product',
+   /* 'js/app': './src/home',
+    'js/product': './src/product',*/
     // 将所有公用的东西都放在一个文件里
     common: ['react', 'react-dom']
   },
@@ -79,7 +79,7 @@ module.exports = {
      * 所以filename只需要写入名字，不需要再添加路径名称，否则找不到，
      * 而且内部的一些输入的连接等都会错误
      */
-    new HtmlWebpackPlugin({
+    /*new HtmlWebpackPlugin({
       title: 'index',
       filename: 'index.html',
       template: 'index.html',
@@ -92,7 +92,7 @@ module.exports = {
       template: 'index.html',
       inject: 'body',
       chunks: ['common', 'js/product']
-    }),
+    }),*/
 
     // 启动之后用指定浏览器自动打开
     // 然而在script中使用 --open就可以打开，这里写着确实有些没有意义
@@ -133,8 +133,22 @@ module.exports = {
   }
 };
 
+var pageArr = ['index', 'hospital', 'information', 'product']
 
+pageArr.map(item => {
+  var plugins = new HtmlWebpackPlugin({
+      title: item,
+      filename: item + '.html',
+      template: 'index.html',
+      inject: 'body',
+      chunks: ['common', 'js/' + item]
+    })
 
+  config.entry['js/' + item] =  './src/' + item
+  config.plugins.push(plugins)
+})
+
+module.exports = config;
 
 
 

@@ -1,24 +1,18 @@
 export default {
   state: {
-    collapsed: false,
-    book: {
-      title: false,
-      description: false,
-    }
+    username: null,
+    password: null
+
   },
-  changeUsername: function(title) {
-    console.log(this)
-    // this.setState({ book });
+  changeUsername: function(e) {
+    this.setState({ username: e.target.value });
   },
-  changePassword: function(description) {
-    let { book } = this.state;
-    console.log(this)
-    book.description = description
-    // this.setState({ book });
+  changePassword: function(e) {
+    this.setState({ password: e.target.value });
   },
-  createBook: function() {
-    let { book } = this.state;
-    kn.post({url: kn.root + 'api/book'}, book)
-      .then(res => console.log(res))
+  login: function() {
+
+    this.api.login(this.state).then(res => console.log(res))
+
   },
 };
