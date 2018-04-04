@@ -5,7 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 /*
 const ManifestPlugin = require('webpack-manifest-plugin');*/
 const publicPath = path.resolve(__dirname, 'dist');
-
+const ROOTS = process.cwd();
 
 const config = {
   // 坑爹的输出文件顺序竟然是按照字母排序来的

@@ -12,11 +12,12 @@ import Login from './page/login'
 import Register from './page/register'
 
 const BasicExample = () => {
-  var login = window.location.href.indexOf('login') > -1
+  const login = window.location.href.indexOf('login') > -1
   const register = window.location.href.indexOf('register') > -1
+
   return (
     <Router>
-      {login || Register ? (
+      {login || register ? (
         <div  id="wrapper" className="signin" style={{ display: 'flex' }}>
           <Route
             key="login"

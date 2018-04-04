@@ -53,7 +53,8 @@ export default {
     if(res.error) {
       console.error(res.error)
     } else {
-      this.props.history.push('/login')
+      this.method.local.set('token', res.token)
+      window.location.href = '/'
     }
   }
 };

@@ -4,6 +4,10 @@ export default {
     password: null
 
   },
+  componentWillMount() {
+    console.log()
+    this.method.local.remove('token')
+  },
   changeUsername: function(e) {
     this.setState({ username: e.target.value });
   },
@@ -12,7 +16,16 @@ export default {
   },
   login: function() {
 
-    this.api.login(this.state).then(res => console.log(res))
+    this.api.login(this.state).then(this.afterLogin)
 
   },
+  afterLogin: function(res) {
+    if(res.error) {
+      console.error(res.error)
+    } else {
+      this.method.local.set('token', res.token)
+      window.location.href = '/'
+      // this.props.history.push('/')
+    }
+  }
 };

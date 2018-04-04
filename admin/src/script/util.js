@@ -99,6 +99,11 @@
     }
   }
 
+  /**
+   * 组装查询字符串 &key=value&key=value
+   * @param params
+   * @returns {string}
+   */
   function createParams(params) {
     var string = ''
 
@@ -116,12 +121,24 @@
     return string
   }
 
+  /**
+   * 复制
+   * @param object
+   * @param methods
+   */
   function extend(object, methods) {
     for(var i in methods) {
       object[i] = methods[i]
     }
   }
 
+  /**
+   * react私有复制方法
+   * @param object
+   * @param methods
+   * @param key
+   * @private
+   */
   function _extend(object, methods, key) {
     if(key) object[key] = object[key] || {};
     const ext = function(i) {
@@ -142,6 +159,47 @@
       }
     }
   }
+
+
+  /**
+   * localStorage
+   * @type {{get: local.get, set: local.set, remove: local.remove, clear: local.clear}}
+   */
+  const local =  {
+    get: function(key) {
+      return localStorage.getItem(key)
+    },
+
+    set: function(key, value) {
+      localStorage.setItem(key, value)
+    },
+    remove: function(key) {
+      return localStorage.removeItem(key)
+    },
+    clear: function() {
+      return localStorage.clear()
+    }
+  }
+  /**
+   * sessionStorage
+   * @type {{get: session.get, set: session.set, remove: session.remove, clear: session.clear}}
+   */
+  const session =  {
+    get: function(key) {
+      return sessionStorage.getItem(key)
+    },
+
+    set: function(key, value) {
+      sessionStorage.setItem(key, value)
+    },
+    remove: function() {
+      return sessionStorage.removeItem.apply(null, arguments)
+    },
+    clear: function() {
+      return sessionStorage.clear()
+    }
+  }
+
 module.exports = {
   extend: extend,
   _extend: _extend,
@@ -154,6 +212,8 @@ module.exports = {
   b64Decode: b64Decode,
   getOffset: getOffset,
   createParams: createParams,
+  local: local,
+  session: session,
 };
 
 

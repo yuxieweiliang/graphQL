@@ -21,3 +21,4 @@ bower_components
 .idea
 *.docx
 *.text
+package-lock.json

@@ -7,19 +7,19 @@ import Login from './page/login'
 export default [
   { path: '/',
     exact: true,
-    sidebar: () => <IndexView/>,
-    main: () => <IndexView/>
+    sidebar: IndexView,
+    main: IndexView
   },
   { path: '/enterprise',
     sidebar: () => <div>bubblegum!</div>,
-    main: () => <Enterprise/>
+    main: Enterprise
   },
   { path: '/product',
     sidebar: () => <div>shoelaces!</div>,
-    main: () => <Product/>
+    main: Product
   },
   { path: '/recruit',
     sidebar: () => <div>shoelaces!</div>,
-    main: () => <Recruit/>
+    main: Recruit
   }
 ]

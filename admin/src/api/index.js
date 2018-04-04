@@ -1,5 +1,8 @@
 
 // 请求系统
+import Banner from './banner';
+
+// 请求系统
 import System from './system';
 
 // 请求用户
@@ -9,10 +12,10 @@ import User from './user';
 import Setting from './setting';
 
 // 请求结构
-import Img from './img';
+import Product from './product';
 
 const api = {};
-const apiArr = [System, User, Setting, Img];
+const apiArr = [System, User, Setting, Product, Banner];
 
 for(let i in apiArr) {
   for(let key in apiArr[i]) {
