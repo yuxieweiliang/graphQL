@@ -1,14 +1,13 @@
 import mongoose, { Schema } from 'mongoose';
 
 const ProductSchema = new Schema({
-  // 标题
-  title:  String,
 
   // 简介
   introduction:  String,
 
   // 名字
   name:   String,
+
   id: Schema.Types.ObjectId,
 
   // 封面图片地址

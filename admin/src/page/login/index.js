@@ -1,7 +1,7 @@
 import React from 'react';
 import RootView from '../../script/common'
 import func from './behavior'
-import './login.css'
+import './style.less'
 
 
 // 进行组装
@@ -12,7 +12,7 @@ export default class extends RootView {
   }
 
   render() {
-
+    console.log(localStorage)
     return(<div className="signinpanel">
       <div className="row">
         <div className="col-sm-7">

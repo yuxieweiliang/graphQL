@@ -12,7 +12,7 @@ Fetch.prototype.createUrl = function(option) {
   const params = option ? method.createParams(option.params) : '';
   const url = option ? option.url : '';
   // const token = cookie.get('token');
-  return config.api + '/'+ url + '?'  + params
+  return params ? config.api + '/'+ url + '?'  + params : config.api + '/'+ url
 }
 
 Fetch.prototype.setHeader = function(key, value) {
@@ -20,24 +20,69 @@ Fetch.prototype.setHeader = function(key, value) {
 }
 
 Fetch.prototype.post = function(option, data) {
-  var url = this.createUrl(option)
-  // this.setHeader('Content-Type', 'application/json')
+  let url = this.createUrl(option)
+  let token = method.local.get('token')
+  let access = this.header.get('Access-Control-Allow-Origin')
+  let jwt = this.header.get('Authorization')
+
+  if(!jwt) {
+    this.setHeader('Authorization', `Bearer ${token}`)
+  }
+
+  if(!access) {
+    this.setHeader('Access-Control-Allow-Origin', '*')
+  }
+  this.setHeader('Content-Type', '')
   // this.setHeader('Access-Control-Allow-Origin', '*')
   // this.setHeader('Authorization', 'fffffffffffffffffffffffffffff')
   // console.log(this.header.get('Access-Control-Allow-Origin'))
+
   return fetch(url, {
-    method: 'POST',
+    method: 'post',
     headers: this.header,
-    body: JSON.stringify(data)
-  }).then(res => res.json())
+    body: data
+  }).then(res => {
+    if(res.status === 200) {
+      return res.json()
+    } else {
+      console.log(res)
+      return res // {error: '请求错误！'}
+    }
+  })
 }
 
-Fetch.prototype.get = function(option) {
-  var url = this.createUrl(option)
 
-  console.log(url)
-  // console.log(this.header.get('Authorization'))
-  return fetch(url).then(res => res.json())
+Fetch.prototype.get = function(option) {
+  let url = this.createUrl(option)
+  let token = method.local.get('token')
+  let access = this.header.get('Access-Control-Allow-Origin')
+  let jwt = this.header.get('Authorization')
+
+  if(!jwt) {
+    this.setHeader('Authorization', `Bearer ${token}`)
+  }
+
+  if(!access) {
+    this.setHeader('Access-Control-Allow-Origin', '*')
+  }
+
+
+  console.log(this.header.get('Authorization'))
+  /*if(!token) {
+    return;
+  }*/
+
+  return fetch(url, {
+    method: 'get',
+    headers: this.header
+  }).then(res => {
+    if(res.status === 200) {
+      return res.json()
+    } else {
+      console.log(res)
+      return res//{error: '请求错误！'}
+    }
+  })
 }
 
 

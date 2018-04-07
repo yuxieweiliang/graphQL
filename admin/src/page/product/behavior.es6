@@ -1,24 +1,30 @@
 export default {
   state: {
     collapsed: false,
-    book: {
-      title: false,
-      description: false,
-    }
+    products: [],
+    product: {}
   },
-  _nameHandle: function(title) {
-    let { book } = this.state;
-    book.title = title
-    this.setState({ book });
+  componentWillMount() {
+    this._updateProduct()
   },
-  _descriptionHandle: function(description) {
-    let { book } = this.state;
-    book.description = description
-    this.setState({ book });
+
+  _updateProduct: function() {
+    this.api.updateProduct();
   },
-  createBook: function() {
-    let { book } = this.state;
-    kn.post({url: kn.root + 'api/book'}, book)
-      .then(res => console.log(res))
+
+  _saveProduct: function() {
+    let _this = this
+    let { product, products } = this.state;
+    this.api.saveProduct(product)
+      .then(res => {
+        products.push({})
+        _this.setState({ products });
+      });
+  },
+
+  _addMsg: function(e, key) {
+    let { product } = this.state;
+    product[key] = e.target.value
+    this.setState({ product })
   },
 };

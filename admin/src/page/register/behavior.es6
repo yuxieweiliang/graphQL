@@ -39,9 +39,9 @@ export default {
    * 注册
    */
   register: function() {
-
+    const { password, username } = this.state
     if(this.state.bool) {
-      this.api.register(this.state).then(this.afterRegister)
+      this.api.register({ password, username }).then(this.afterRegister)
     }
 
   },
@@ -53,7 +53,8 @@ export default {
     if(res.error) {
       console.error(res.error)
     } else {
-      this.props.history.push('/login')
+      this.method.local.set('token', res.token)
+      window.location.href = '/'
     }
   }
 };

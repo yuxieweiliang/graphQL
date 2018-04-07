@@ -15,8 +15,10 @@ use
 other
 dist
 mong
-db
+db/*
+*/db
 bower_components
 .idea
 *.docx
 *.text
+package-lock.json

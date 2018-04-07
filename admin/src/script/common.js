@@ -1,6 +1,7 @@
 import React from 'react'
 import config from './config'
 import Fetch from './fetch'
+import Ajax from './ajax'
 import cookie from './cookie'
 import method from './util'
 import api from '../api'
@@ -18,6 +19,7 @@ class RootView extends React.Component{
 
     // 请求方法
     this.fetch = new Fetch;
+    this.ajax = new Ajax;
 
     // 全局工具函数
     this.method = method;

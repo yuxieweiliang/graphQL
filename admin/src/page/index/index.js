@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
-export default class extends Component {
-  render() {
+import RootView from '../../script/common'
+import func from './behavior'
+import './style.less'
 
+export default class extends RootView {
+  constructor(props) {
+    super(props)
+    this.method._extend(this, func);
+  }
+  render() {
     return(<div className="wrapper wrapper-content animated fadeInRight">
 
       <div className="row">
@@ -28,47 +35,36 @@ export default class extends Component {
               </div>
             </div>
             <div className="ibox-content">
-              <form className="form-horizontal m-t" id="commentForm">
-                <div className="form-group">
-                  <label className="col-sm-2 control-label">海报：</label>
-                  <div className="col-sm-8">
-                    <input id="cname" name="name" minlength="2" type="text" className="form-control" required="" aria-required="true"/>
-                  </div>
-                </div>
-                <div className="form-group">
-                  <label className="col-sm-2 control-label">产品简介：</label>
-                  <div className="col-sm-8">
-                    <input id="cemail" type="email" className="form-control" name="email" required="" aria-required="true"/>
-                    <span className="help-block m-b-none"><i className="fa fa-info-circle"/>这里写点提示的内容</span>
-                  </div>
-                </div>
-                <div className="form-group">
-                  <label className="col-sm-2 control-label">产品图片：</label>
-                  <div className="col-sm-8">
-                    <input id="curl" type="url" className="form-control" name="url"/>
-                  </div>
-                </div>
-                <div className="form-group">
-                  <label className="col-sm-2 control-label">说明：</label>
-                  <div className="col-sm-8">
-                    <textarea id="ccomment" name="comment" className="form-control" required="" aria-required="true"/>
-                  </div>
-                </div>
-                <div className="form-group">
-                  <div className="col-sm-8 col-sm-offset-2">
-                    <div className="checkbox">
-                      <label>
-                        <input type="checkbox" className="checkbox" id="agree" name="agree"/>
-                        发布
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div className="form-group">
-                  <div className="col-sm-8 col-sm-offset-2">
-                    <button className="btn btn-primary" type="submit">提交</button>
-                  </div>
-                </div>
+              <form className="form-horizontal m-t">
+                {
+                  this.state.banner.map((item, i) => {
+                    return (
+                      <div className="form-group" key={i}>
+                        <label className="col-sm-2 control-label">海报：</label>
+                        <div className="col-sm-2 text-center">
+                          {
+                            item ? (
+                              <img key={i} className="banner-img" src={`${item.url}`}/>
+                            ) : <i className="fa fa-picture-o banner-img" aria-hidden="true"/>
+                          }
+                        </div>
+                        <div className="col-sm-5">
+                          {
+                            item ? (
+                            <div className="form-control banner-img-url">{item.url}</div>
+                            ) : (
+                              <input onChange={this._changeFile} className="form-control" type="file" />
+                            )
+                          }
+                        </div>
+                        <div className="col-sm-3 text-right">
+                          <button onClick={() => this._updateBanner(i)} type="button" className="btn btn-success btn-sm">上传</button>
+                          <button onClick={() => this._removeBanner(item, i)} type="button" className="btn btn-danger btn-sm">删除</button>
+                        </div>
+                      </div>
+                    )
+                  })
+                }
               </form>
             </div>
           </div>
