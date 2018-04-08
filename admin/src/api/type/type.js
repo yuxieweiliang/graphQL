@@ -44,3 +44,13 @@ export const product = {
   save: productRoot('save'),
   remove: productRoot('remove'),
 };
+
+/**
+ * 公共api
+ */
+const classRoot = createApi('class');
+export const classify = {
+  list: classRoot(''),
+  save: classRoot('save'),
+  remove: classRoot('remove'),
+};

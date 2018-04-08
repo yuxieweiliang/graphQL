@@ -1,4 +1,5 @@
 import mongoose, { Schema } from 'mongoose';
+let ObjectId = Schema.Types.ObjectId;
 
 const ProductSchema = new Schema({
 
@@ -10,6 +11,11 @@ const ProductSchema = new Schema({
 
   id: Schema.Types.ObjectId,
 
+  // 分类
+  classify: [{
+    type: ObjectId,
+    ref: 'Classify'
+  }],
   // 封面图片地址
   images:   {
     large: String,

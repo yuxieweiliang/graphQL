@@ -8,7 +8,7 @@ import bodyData from '../bodyData'
 import os from 'os'
 import util from 'util'
 
-const Product = mongoose.model('Product');
+const Classify = mongoose.model('Classify');
 
 function createResponse(obj) {
   return JSON.stringify({
@@ -18,27 +18,25 @@ function createResponse(obj) {
 
 function removeResponse(obj) {
   return JSON.stringify({
-    data:  _.isEmpty(obj) ? '删除失败！' : '删除成功！'
+    data:  _.isEmpty(obj) ? '保存失败！' : '保存成功！'
   })
 }
 
-async function product(ctx) {
+async function classify(ctx) {
   let params = ctx.request.query || ctx.query
-  let products = await Product.find({})
+  let classify = await Classify.find({})
 
   ctx.body = JSON.stringify({
-    data: products
+    data: classify
   });
 }
 
-async function saveProduct(ctx) {
+async function save(ctx) {
   let data = await bodyData(ctx)
-  let products = await Product.find({title: data.title})
+  let classify = await Classify.find({name: data.name})
 
-  console.log(data, products)
-
-  if(_.isEmpty(products)) {
-    let create = await Product.create({...data})
+  if(_.isEmpty(classify)) {
+    let create = await Classify.create({...data})
     ctx.body = createResponse(create)
   } else {
     ctx.body = JSON.stringify({
@@ -47,17 +45,13 @@ async function saveProduct(ctx) {
   }
 }
 
-async function removeProduct(ctx) {
+async function remove(ctx) {
   let params = ctx.request.query || ctx.query;
-  let products = await Product.findById(params._id)
+  let classify = await Classify.findById(params._id)
 
-  if(!_.isEmpty(products)) {
-    let remove = await Product.remove({...params})
-
-    console.log(remove)
-
+  if(!_.isEmpty(classify)) {
+    let remove = await Classify.remove({params})
     ctx.body = removeResponse(remove)
-
   } else {
     ctx.body = JSON.stringify({
       data:  '删除失败！'
@@ -70,7 +64,7 @@ async function removeProduct(ctx) {
 
 
 module.exports = {
-  'GET /product': product,
-  'POST /product/save': saveProduct,
-  'GET /product/remove': removeProduct,
+  'GET /class': classify,
+  'POST /class/save': save,
+  'GET /class/remove': remove,
 };

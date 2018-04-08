@@ -37,27 +37,33 @@ export default class extends RootView {
             <div className="ibox-content">
               <form className="form-horizontal m-t" id="commentForm">
                 <div className="form-group">
+                  <label className="col-sm-2 control-label">产品分类：</label>
+                  <div className="col-sm-8">
+                    <input value={this.state.productClass} type="text" disabled className="form-control"/>
+                  </div>
+                </div>
+                <div className="form-group">
                   <label className="col-sm-2 control-label">产品名称：</label>
                   <div className="col-sm-8">
-                    <input onClick={(e) => this._addMsg(e, 'name')} type="text" className="form-control"/>
+                    <input onChange={(e) => this._addMsg.call(null, e, 'name')} type="text" className="form-control"/>
                   </div>
                 </div>
                 <div className="form-group">
                   <label className="col-sm-2 control-label">产品简介：</label>
                   <div className="col-sm-8">
-                    <input onClick={(e) => this._addMsg(e, 'introduction')} type="text" className="form-control"/>
+                    <input onChange={(e) => this._addMsg(e, 'introduction')} type="text" className="form-control"/>
                   </div>
                 </div>
                 <div className="form-group">
                   <label className="col-sm-2 control-label">产品图片：</label>
                   <div className="col-sm-8">
-                    <input onClick={(e) => this._addMsg(e, 'image')} type="file" className="form-control"/>
+                    <input onChange={(e) => this._addMsg(e, 'image')} type="file" className="form-control"/>
                   </div>
                 </div>
                 <div className="form-group">
                   <label className="col-sm-2 control-label">相关：</label>
                   <div className="col-sm-8">
-                    <textarea onClick={(e) => this._addMsg(e, 'description')} className="form-control"/>
+                    <textarea onChange={(e) => this._addMsg(e, 'description')} className="form-control"/>
                   </div>
                 </div>
                 <div className="form-group">

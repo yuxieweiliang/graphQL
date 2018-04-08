@@ -1,9 +1,44 @@
-import { product } from './type/type'
+import { product, classify } from './type/type'
 
 /**
  * 登陆
  */
 export default {
+
+  /**
+   * 加载产品分类
+   */
+  updateClass: function () {
+    return this.ajax.get({url: classify.list})
+      .then(function(data) {
+
+        return data
+      })
+  },
+
+  /**
+   * 创建产品分类
+   * @param data
+   */
+  newClass: function(data) {
+    console.log(data)
+    return this.ajax.post({url: classify.save}, data)
+      .then(function(data) {
+
+        return data
+      })
+  },
+
+  /**
+   * 删除产品分类
+   */
+  removeClass: function() {
+    return this.ajax.get({url: classify.remove})
+      .then(function(data) {
+
+        return data
+      })
+  },
 
   updateProduct: function () {
 
@@ -13,6 +48,7 @@ export default {
         return data
       })
   },
+
   saveProduct: function (data) {
 
     return this.ajax.post({url: product.save}, data)
@@ -21,9 +57,10 @@ export default {
         return data
       })
   },
-  removeProduct: function () {
 
-    return this.ajax.get({url: product.remove})
+  removeProduct: function (_id) {
+
+    return this.ajax.get({url: product.remove, params: { _id }})
       .then(function(data) {
 
         return data

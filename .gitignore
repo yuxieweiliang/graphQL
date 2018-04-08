@@ -3,7 +3,6 @@
 # dependencies
 node_modules
 */node_modules
-*/node_modules
 # production
 build
 
@@ -17,6 +16,8 @@ dist
 mong
 db/*
 */db
+db
+admin/server/db
 bower_components
 .idea
 *.docx
