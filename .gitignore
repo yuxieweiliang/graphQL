@@ -9,7 +9,7 @@ build
 # misc
 .DS_Store
 *.log
-
+package-lock.*
 use
 other
 dist

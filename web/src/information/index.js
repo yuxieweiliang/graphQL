@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { Layout, Menu, Breadcrumb, Tabs, Carousel, Row, Col, Card } from 'antd';
 import data from './behavior'
 import 'antd/dist/antd.less';
-import '../../bower_components/font-awesome/less/font-awesome.less';
+import 'font-awesome/less/font-awesome.less';
 import './style.less'
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;

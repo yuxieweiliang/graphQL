@@ -29,9 +29,9 @@ export default class extends RootView {
               <table className="table table-bordered">
                 <thead>
                 <tr>
-                  <th>#</th>
-                  <th>分类名称</th>
-                  <th>操作</th>
+                  <th width="10%">#</th>
+                  <th width="70%">分类名称</th>
+                  <th className="text-center" width="20%">操作</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -42,8 +42,8 @@ export default class extends RootView {
                         <tr key={i}>
                           <td>{i}</td>
                           <td>{items.name }</td>
-                          <td>
-                            <Link to="product-add" className="btn btn-primary btn-sm">编辑</Link>
+                          <td className="text-center">
+                            {/*<Link to="product-add" className="btn btn-primary btn-sm">编辑</Link>*/}
                             <button className="btn btn-danger btn-sm">删除</button>
                           </td>
                         </tr>
@@ -71,10 +71,10 @@ export default class extends RootView {
               <table className="table table-bordered">
                 <thead>
                 <tr>
-                  <th>#</th>
-                  <th>名称</th>
-                  <th>分类</th>
-                  <th>操作</th>
+                  <th width="10%">#</th>
+                  <th width="40%">名称</th>
+                  <th width="30%">分类</th>
+                  <th width="20%" className="text-center">操作</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -86,8 +86,8 @@ export default class extends RootView {
                           <td>{i}</td>
                           <td>{items.name}</td>
                           <td>{items.classify_name }</td>
-                          <td>
-                            <Link to="product-add" className="btn btn-primary btn-sm">编辑</Link>
+                          <td className="text-center">
+                            {/*<Link to="product-add" className="btn btn-primary btn-sm">编辑</Link>*/}
                             <button onClick={e => this._productRemove(items)} className="btn btn-danger btn-sm">删除</button>
                           </td>
                         </tr>
@@ -132,29 +132,34 @@ export default class extends RootView {
               <button type="button" className="close" data-dismiss="modal" aria-hidden="true">&times;</button>
               <h4 className="modal-title" id="myModalLabel">选择分类</h4>
             </div>
-            <div className="modal-body">
-              <div className="input-group">
-                <span className="input-group-addon">分类</span>
-                <select  type="text" className="form-control">
-                  {
-                    this.state.classify && (
-                      this.state.classify.map((items, i) => {
-                        return (
-                          <option
-                            key={i}
-                            onClick={() => _this._changeProductClass(items)}
-                            value={items.name }>
-                            {items.name }
+            <div className="modal-body row">
+              <div className="col-sm-12 form-group">
+                <label className="col-sm-2 control-label">分类</label>
+                <div className="col-sm-8">
+                  <select  type="text" className="form-control">
+                    {
+                      this.state.classify && (
+                        this.state.classify.map((items, i) => {
+                          return (
+                            <option
+                              key={i}
+                              onClick={() => _this._changeProductClass(items)}
+                              value={items.name }>
+                              {items.name }
                             </option>
-                        )
-                      })
-                    )
-                  }
-                </select>
+                          )
+                        })
+                      )
+                    }
+                  </select>
+                </div>
+
               </div>
-              <div className="input-group">
-                <span className="input-group-addon">产品名称</span>
-                <input onChange={this._changeProductName} type="text" className="form-control"/>
+              <div className="col-sm-12 form-group">
+                <label className="col-sm-2 control-label">产品名称</label>
+                <div className="col-sm-8">
+                  <input onChange={this._changeProductName} type="text" className="form-control"/>
+                </div>
               </div>
             </div>
             <div className="modal-footer">

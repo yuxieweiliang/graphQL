@@ -1,16 +1,20 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { Layout, Menu, Breadcrumb, Icon, Carousel, Row, Col, Card } from 'antd';
-import data from './behavior'
-import 'antd/dist/antd.less';
-import '../../bower_components/font-awesome/less/font-awesome.less';
-import './style.less'
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 const { Meta } = Card;
+import RootView from '../script/common'
+import func from './behavior'
+import './style.less'
 
-class IndexPage extends Component {
-  createIcon(option) {
+class IndexPage extends RootView {
+  constructor(props) {
+    super(props);
+    this.method._extend(this, func);
+  }
+
+/*  createIcon(option) {
     return option.map(item => (
       <div className="icon-box" key={item.icon}>
         <div className="icon-context">
@@ -21,9 +25,14 @@ class IndexPage extends Component {
         </div>
       </div>
     ))
+  }*/
+
+  componentWillMount() {
+
   }
   render() {
-    let iconArr = data.config.icon;
+    let iconArr = this.state.config.icon;
+    console.log(this)
     return (
       <Layout>
         <Header className="header" style={{ height: '40px' , display: 'flex'}}>
@@ -48,16 +57,16 @@ class IndexPage extends Component {
               <div><img src={require('../../public/image/banner.jpg')} alt=""/></div>
               <div><img src={require('../../public/image/banner.jpg')} alt=""/></div>
             </Carousel>
-            <Row className="hospital-advantage">
+            {/*<Row className="hospital-advantage">
               <Col md={{ span: 24 }} lg={{ span: 20, offset: 2 }}>
                 {this.createIcon(iconArr)}
               </Col>
-            </Row>
-            <Row className="hospital-advantage">
+            </Row>*/}
+            {/*<Row className="hospital-advantage">
               <Col md={{ span: 24 }} lg={{ span: 20, offset: 2 }}>
                 <div className="poster" style={{height: 200, overflow: 'hidden'}}><img src={require('../../public/image/banner.jpg')} style={{width: '100%'}} alt=""/></div>
               </Col>
-            </Row>
+            </Row>*/}
 
             <Row className="hospital-product">
               <Col md={{ span: 24 }} lg={{ span: 20, offset: 2 }} style={{display: 'flex', flexFlow: 'wrap'}}>

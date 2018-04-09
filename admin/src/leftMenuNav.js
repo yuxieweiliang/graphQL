@@ -48,9 +48,9 @@ export default class extends Component {
             <Link to="/enterprise">
               <span className="nav-label">企业</span>
             </Link>
-            <Link to="/recruit">
+            {/*<Link to="/recruit">
               <span className="nav-label">招聘</span>
-            </Link>
+            </Link>*/}
           </li>
         </ul>
       </div>

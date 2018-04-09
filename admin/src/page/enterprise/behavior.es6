@@ -1,24 +1,19 @@
 export default {
   state: {
-    collapsed: false,
-    book: {
-      title: false,
-      description: false,
-    }
+    dynamic: null,
+    introduction: null,
+    name: null,
+    _id: null,
   },
-  _nameHandle: function(title) {
-    let { book } = this.state;
-    book.title = title
-    this.setState({ book });
+
+  componentWillMount() {
+    this.api.getEnterpriseDynamic().then(res => this.setState({...res.data}))
   },
-  _descriptionHandle: function(description) {
-    let { book } = this.state;
-    book.description = description
-    this.setState({ book });
+  _enterpriseDynamic(e) {
+    this.setState({dynamic: e.target.value})
   },
-  createBook: function() {
-    let { book } = this.state;
-    kn.post({url: kn.root + 'api/book'}, book)
-      .then(res => console.log(res))
+  _addDynamic() {
+    const { dynamic, _id } = this.state
+    this.api.updateEnterpriseDynamic({dynamic, _id})
   },
 };
