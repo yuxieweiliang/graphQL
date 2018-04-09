@@ -42,6 +42,8 @@ const productRoot = createApi('product');
 export const product = {
   list: productRoot(''),
   save: productRoot('save'),
+  edit: productRoot('edit'),
+  image: productRoot('image'),
   remove: productRoot('remove'),
 };
 

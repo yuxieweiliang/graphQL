@@ -77,7 +77,7 @@ function uploadFile( ctx, options) {
     // 解析表单中其他字段信息
     busboy.on('field', function(fieldname, val, fieldnameTruncated, valTruncated, encoding, mimetype) {
       console.log('表单字段数据 [' + fieldname + ']: value: ' + inspect(val));
-      result.formData[fieldname] = inspect(val);
+      result.formData[fieldname] = val;
     });
 
     // 解析结束事件

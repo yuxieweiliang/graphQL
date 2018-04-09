@@ -18,7 +18,7 @@ export default [
     sidebar: () => <div>shoelaces!</div>,
     main: Product
   },
-  { path: '/product-add',
+  { path: '/product-add/:id',
     sidebar: () => <div>shoelaces!</div>,
     main: AddProduct
   },

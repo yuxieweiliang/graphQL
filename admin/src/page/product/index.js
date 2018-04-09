@@ -9,6 +9,7 @@ export default class extends RootView {
   }
   state = func.state
   render() {
+    var _this = this
 
     console.log(this.state)
     return(<div className="wrapper wrapper-content animated fadeInRight">
@@ -16,7 +17,7 @@ export default class extends RootView {
         <div className="col-sm-12">
           <div className="ibox float-e-margins">
             <div className="ibox-title">
-              <h5>产品分类</h5>
+              <h5>分类</h5>
               <div className="ibox-tools">
                 <a className="collapse-link" data-toggle="modal" data-target="#addClass">
                   <i className="fa fa-plus"></i>
@@ -50,35 +51,18 @@ export default class extends RootView {
                     })
                   )
                 }
-
                 </tbody>
               </table>
-
             </div>
           </div>
         </div>
         <div className="col-sm-12">
           <div className="ibox float-e-margins">
             <div className="ibox-title">
-              <h5>简单示例</h5>
+              <h5>产品</h5>
               <div className="ibox-tools">
                 <a className="collapse-link" data-toggle="modal" data-target="#addProduct">
                   <i className="fa fa-plus"></i>
-                </a>
-                <a className="collapse-link">
-                  <i className="fa fa-chevron-up"></i>
-                </a>
-                <a className="dropdown-toggle" data-toggle="dropdown" href="form_basic.html#">
-                  <i className="fa fa-wrench"></i>
-                </a>
-                <ul className="dropdown-menu dropdown-user">
-                  <li><a href="form_basic.html#">选项1</a>
-                  </li>
-                  <li><a href="form_basic.html#">选项2</a>
-                  </li>
-                </ul>
-                <a className="close-link">
-                  <i className="fa fa-times"></i>
                 </a>
               </div>
             </div>
@@ -100,8 +84,8 @@ export default class extends RootView {
                       return (
                         <tr key={i}>
                           <td>{i}</td>
-                          <td>{items.title}</td>
-                          <td>{items.classify }</td>
+                          <td>{items.name}</td>
+                          <td>{items.classify_name }</td>
                           <td>
                             <Link to="product-add" className="btn btn-primary btn-sm">编辑</Link>
                             <button onClick={e => this._productRemove(items)} className="btn btn-danger btn-sm">删除</button>
@@ -151,15 +135,26 @@ export default class extends RootView {
             <div className="modal-body">
               <div className="input-group">
                 <span className="input-group-addon">分类</span>
-                <select  onChange={this._changeProductClass} type="text" className="form-control">
+                <select  type="text" className="form-control">
                   {
                     this.state.classify && (
                       this.state.classify.map((items, i) => {
-                        return (<option key={i}  value={items.name }>{items.name }</option>)
+                        return (
+                          <option
+                            key={i}
+                            onClick={() => _this._changeProductClass(items)}
+                            value={items.name }>
+                            {items.name }
+                            </option>
+                        )
                       })
                     )
                   }
                 </select>
+              </div>
+              <div className="input-group">
+                <span className="input-group-addon">产品名称</span>
+                <input onChange={this._changeProductName} type="text" className="form-control"/>
               </div>
             </div>
             <div className="modal-footer">

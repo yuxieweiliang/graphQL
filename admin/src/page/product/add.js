@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import RootView from '../../script/common'
 import { Link } from 'react-router-dom'
-import func from './behavior'
+import func from './behavior_add'
 export default class extends RootView {
   constructor(props) {
     super(props)
     this.method._extend(this, func);
   }
   state = func.state
+
   render() {
+    const { product } = this.state
     return(<div className="wrapper wrapper-content animated fadeInRight">
 
       <div className="row">
@@ -39,13 +41,13 @@ export default class extends RootView {
                 <div className="form-group">
                   <label className="col-sm-2 control-label">产品分类：</label>
                   <div className="col-sm-8">
-                    <input value={this.state.productClass} type="text" disabled className="form-control"/>
+                    <input value={product.classify_name} type="text" disabled className="form-control"/>
                   </div>
                 </div>
                 <div className="form-group">
                   <label className="col-sm-2 control-label">产品名称：</label>
                   <div className="col-sm-8">
-                    <input onChange={(e) => this._addMsg.call(null, e, 'name')} type="text" className="form-control"/>
+                    <input value={product.name} type="text" disabled className="form-control"/>
                   </div>
                 </div>
                 <div className="form-group">
@@ -57,7 +59,7 @@ export default class extends RootView {
                 <div className="form-group">
                   <label className="col-sm-2 control-label">产品图片：</label>
                   <div className="col-sm-8">
-                    <input onChange={(e) => this._addMsg(e, 'image')} type="file" className="form-control"/>
+                    <input onChange={this._addImages} type="file" className="form-control"/>
                   </div>
                 </div>
                 <div className="form-group">
@@ -78,7 +80,7 @@ export default class extends RootView {
                 </div>
                 <div className="form-group">
                   <div className="col-sm-8 col-sm-offset-2">
-                    <button onClick={this._saveProduct} className="btn btn-primary" type="button">提交</button>
+                    <button onClick={this._editProduct} className="btn btn-primary" type="button">提交</button>
                     <Link to="/product" className="btn btn-primary">返回</Link>
                   </div>
                 </div>

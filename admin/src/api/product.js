@@ -17,6 +17,17 @@ export default {
   },
 
   /**
+   * 加载产品分类
+   */
+  updateOneProduct: function (_id) {
+    return this.ajax.get({url: product.list, params: {_id}})
+      .then(function(data) {
+
+        return data
+      })
+  },
+
+  /**
    * 创建产品分类
    * @param data
    */
@@ -58,9 +69,29 @@ export default {
       })
   },
 
-  removeProduct: function (_id) {
+  editProduct: function (data) {
+    return this.ajax.post({url: product.edit}, data)
+      .then(function(data) {
 
-    return this.ajax.get({url: product.remove, params: { _id }})
+        return data
+      })
+  },
+
+
+  addProductImg: function (data) {
+    this.ajax.option.processData = false;
+    this.ajax.option.contentType = false;
+    return this.ajax.post({url: product.image}, data)
+      .then(function(data) {
+
+        return data
+      })
+  },
+
+  removeProduct: function (params) {
+
+    console.log(params)
+    return this.ajax.get({url: product.remove, params})
       .then(function(data) {
 
         return data

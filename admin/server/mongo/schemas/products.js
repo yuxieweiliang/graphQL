@@ -11,16 +11,13 @@ const ProductSchema = new Schema({
 
   id: Schema.Types.ObjectId,
 
-  // 分类
-  classify: [{
-    type: ObjectId,
-    ref: 'Classify'
-  }],
+  // 分类名称
+  classify_name: String,
+
+  // 分类ID
+  classify_id: String,
   // 封面图片地址
-  images:   {
-    large: String,
-    small: String
-  },
+  images:   [String],
 
   // 状态
   status: String,// 'published'
