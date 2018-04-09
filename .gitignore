@@ -17,6 +17,7 @@ mong
 db/*
 */db
 db
+img/banner/*
 admin/server/db
 bower_components
 .idea
