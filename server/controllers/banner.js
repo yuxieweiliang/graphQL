@@ -40,7 +40,7 @@ const update = async (ctx) => {
   let banner = null
 
   if(result.success) {
-    banner = await Banner.create({url: 'http://localhost:3000/' + result.fileName})
+    banner = await Banner.create({url: result.fileName})
     result.url = banner.url
     console.log(banner.url)
   }

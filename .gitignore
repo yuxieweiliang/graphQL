@@ -2,7 +2,8 @@
 
 # dependencies
 node_modules
-*/node_modules
+bower_components
+
 # production
 build
 
@@ -10,17 +11,15 @@ build
 .DS_Store
 *.log
 package-lock.*
+
+db
+*/db
+db/*
 use
 other
 dist
 mong
-db/*
-*/db
-db
-img/banner/*
-admin/server/db
 bower_components
 .idea
 *.docx
 *.text
-package-lock.json

@@ -12,6 +12,7 @@ const register = async (ctx) => {
   let token = ctx.jwt(data)
   let users = await  User.findOne({'account.username': data.username });
 
+  console.log('register')
   if(_.isEmpty(users)) {
     let createUser = await User.create({ account: data});
 
@@ -32,6 +33,7 @@ const login = async (ctx) => {
   let token = ctx.jwt(params)
   let users = await  User.findOne({'account.username': params.username });
 
+  console.log('login')
   if(_.isEmpty(users)) {
     ctx.body = JSON.stringify({ error:  '用户不存在！' })
   } else {

@@ -3,12 +3,22 @@ import Enterprise from './page/enterprise'
 import Product from './page/product'
 import AddProduct from './page/product/add'
 import Recruit from './page/recruit'
+import Login from './page/login'
+import Register from './page/register'
 
 export default [
   { path: '/',
     exact: true,
     sidebar: IndexView,
     main: IndexView
+  },
+  { path: '/login',
+    sidebar: () => <div>bubblegum!</div>,
+    main: Login
+  },
+  { path: '/register',
+    sidebar: () => <div>bubblegum!</div>,
+    main: Register
   },
   { path: '/enterprise',
     sidebar: () => <div>bubblegum!</div>,
