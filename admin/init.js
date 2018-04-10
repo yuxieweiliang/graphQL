@@ -28,6 +28,6 @@ app.use(serve( path.resolve(ROOTS, 'dist')));
 
 router.all('/:id',async function(ctx) {
   ctx.redirect('/');
-})
-app.use(router.routes())
-app.listen(3030);
+});
+app.use(router.routes());
+app.listen(8001);

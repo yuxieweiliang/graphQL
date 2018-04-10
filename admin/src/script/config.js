@@ -1,4 +1,4 @@
 export default {
-  api: 'http://localhost:3000',
+  api: 'http://henhaomai.top:8000',
   root: 'http://192.168.1.103'
 }
