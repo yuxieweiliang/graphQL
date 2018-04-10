@@ -18,6 +18,7 @@ const app = new Koa();
 
 const ROOTS = process.cwd();
 app.use(serve( path.resolve(ROOTS, 'public', 'img', 'banner')));
+app.use(serve( path.resolve(ROOTS, 'dist')));
 
 // 跨域
 app.use(cors({

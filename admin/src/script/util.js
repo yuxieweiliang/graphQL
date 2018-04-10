@@ -200,6 +200,18 @@
     }
   }
 
+  function getObjectURL(file) {
+    let url = null;
+    if (window.createObjcectURL) {
+      url = window.createOjcectURL(file);
+    } else if (window.URL) {
+      url = window.URL.createObjectURL(file);
+    } else if (window.webkitURL) {
+      url = window.webkitURL.createObjectURL(file);
+    }
+    return url;
+  }
+
 module.exports = {
   extend: extend,
   _extend: _extend,
@@ -214,6 +226,7 @@ module.exports = {
   createParams: createParams,
   local: local,
   session: session,
+  getObjectURL: getObjectURL,
 };
 
 

@@ -46,7 +46,6 @@ class DialogDemo extends React.Component {
       showAndroid2: false,
     });
   }
-
   render() {
 
     return (

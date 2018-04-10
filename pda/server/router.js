@@ -3,6 +3,8 @@ import Router from 'koa-router';
 import ReactServer from 'react-dom/server';
 import Home from '../src/home'
 import Products from '../src/products';
+import Login from '../src/login';
+import Register from '../src/register';
 //
 const router = new Router();
 const com = {
@@ -24,6 +26,8 @@ router.get('/', async function(ctx) {
   if(com.js.indexOf('/home.build.js') < 0) {
     com.js.push('/home.build.js');
   }
+
+  console.log(com.js)
   await ctx.render('index', {
     css: ['/home.css'],
     script: com.js,
@@ -50,6 +54,30 @@ router.get('/enterprise', async function(ctx) {
   }
   await ctx.render('index', {
     css: ['/enterprise.css'],
+    script: com.js,
+    json: JSON.stringify(domRender)
+  })
+});
+
+router.get('/login', async function(ctx) {
+  const domRender = ReactServer.renderToString(<Login number="fdsafdsa"/>);
+  if(com.js.indexOf('/login.build.js') < 0) {
+    com.js.push('/login.build.js');
+  }
+  await ctx.render('index', {
+    css: ['/login.css'],
+    script: com.js,
+    json: JSON.stringify(domRender)
+  })
+});
+
+router.get('/register', async function(ctx) {
+  const domRender = ReactServer.renderToString(<Register number="fdsafdsa"/>);
+  if(com.js.indexOf('/register.build.js') < 0) {
+    com.js.push('/register.build.js');
+  }
+  await ctx.render('index', {
+    css: ['/register.css'],
     script: com.js,
     json: JSON.stringify(domRender)
   })

@@ -117,7 +117,7 @@ async function saveProductImage(ctx) {
   let product = await Product.findById(result.formData.id)
 
   if(result.success && !_.isEmpty(product)) {
-    let url = product.images.concat('http://localhost:3000/' + result.fileName)
+    let url = product.images.concat(result.fileName)
     image = await Product.update({_id: result.formData.id}, {$set:{images: url}})
     console.log(image)
   }

@@ -6,7 +6,7 @@ const User = mongoose.model('User')
 /**
  * 书籍
  */
-var getUser = async (ctx) => {
+const getUser = async (ctx) => {
   let data = JSON.parse(ctx.request.body);
   let params = ctx.request.query || ctx.query;
   let users = await  User.find({'account.username': data.username });
@@ -23,7 +23,7 @@ var getUser = async (ctx) => {
 };
 
 
-var postUser = async ctx => {
+const postUser = async ctx => {
   let data = JSON.parse(ctx.request.body);
   let params = ctx.request.query || ctx.query;
   let users = await  User.find({'account.username': data.username })
@@ -38,7 +38,7 @@ var postUser = async ctx => {
 
   ctx.body = JSON.stringify({message});
 };
-var updateUser = async ctx => {
+const updateUser = async ctx => {
   let data = JSON.parse(ctx.request.body);
   let params = ctx.request.query || ctx.query;
   let users = await  User.find({'account.username': data.username });
@@ -62,7 +62,7 @@ var updateUser = async ctx => {
   });
 };
 
-var deleteUser = async ctx => {
+const deleteUser = async ctx => {
   let data = JSON.parse(ctx.request.body);
   let params = ctx.request.query || ctx.query
   let users = await  User.find({'account.username': data.username });

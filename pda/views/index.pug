@@ -13,5 +13,11 @@ html(lang="en")
     div(id="root")!=JSON.parse(json)
   each href in css
     link(href= href, rel= 'stylesheet', type= 'text/css')
+
+    script(src= '/vendors.js')
+    script(src= 'jquery/dist/jquery.min.js')
+    script(src= 'zepto/zepto.min.js')
+    script(src= 'frozenui/dist/js/frozen.js')
+    script(src= 'http://www.henhaomai.top:8077/lodash/lodash.min.js')
   each src in script
     script(src= src)

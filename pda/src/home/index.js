@@ -2,29 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Flex, FlexItem, Grids, Button, Dialog, Tab, TabBarItem, Article } from 'react-weui';
 import func from './behavior'
+import RootView from '../script/common'
 
-class DialogDemo extends React.Component {
+class IndexPage extends RootView {
   constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  componentDidMount() {
-    func.didMount();
-    console.log('document.getElementById("aui-slide3")');
-    var slide = new auiSlide({
-      container: document.getElementById("aui-slide3"), //容器
-      // "width":300, //宽度
-      "height":300, //高度
-      "speed":500, //速度
-      "autoPlay": 3000, //自动播放
-      "loop":true,//是否循环
-      "pageShow":true,//是否显示分页器
-      "pageStyle":'line', //分页器样式，分dot,line
-      'dotPosition':'center' //当分页器样式为dot时控制分页器位置，left,center,right
-    });
-    var popup = new auiPopup();
-    // popup.show(document.getElementById("top-right"))
+    super(props)
+    this.method._extend(this, func);
   }
   toProduct() {
     window.location.href = 'products'
@@ -53,7 +36,7 @@ class DialogDemo extends React.Component {
             </ul>
           </div>
         </article>
-        <section className="aui-grid aui-margin-b-15">
+        {/*<section className="aui-grid aui-margin-b-15">
           <div className="aui-row">
             <div className="aui-col-xs-3">
               <div className="aui-badge">88</div>
@@ -72,7 +55,7 @@ class DialogDemo extends React.Component {
               <i className="fa fa-cart-plus"></i>
               <div className="aui-grid-label">购物车</div>
             </div>
-            {/*<div className="aui-col-xs-3">
+            <div className="aui-col-xs-3">
               <div className="aui-badge"></div>
               <i className="aui-iconfont aui-icon-date"></i>
               <div className="aui-grid-label">日期</div>
@@ -81,9 +64,9 @@ class DialogDemo extends React.Component {
               <div className="aui-dot"></div>
               <i className="aui-iconfont aui-icon-cart"></i>
               <div className="aui-grid-label">购物车</div>
-            </div>*/}
+            </div>
           </div>
-        </section>
+        </section>*/}
         <section className="aui-content aui-margin-b-15">
           <ul className="aui-list aui-media-list">
             <li className="aui-list-item">
@@ -96,6 +79,15 @@ class DialogDemo extends React.Component {
                   </div>
                   <div className="aui-col-xs-4" onClick={this.toProduct}>
                     <img src="aui-master/image/demo2.png" />
+                  </div>
+                  <div className="aui-col-xs-4" onClick={this.toProduct}>
+                    <img src="aui-master/image/demo3.png" />
+                  </div>
+                  <div className="aui-col-xs-4" onClick={this.toProduct}>
+                    <img src="aui-master/image/demo3.png" />
+                  </div>
+                  <div className="aui-col-xs-4" onClick={this.toProduct}>
+                    <img src="aui-master/image/demo3.png" />
                   </div>
                   <div className="aui-col-xs-4" onClick={this.toProduct}>
                     <img src="aui-master/image/demo3.png" />
@@ -122,9 +114,9 @@ class DialogDemo extends React.Component {
             </li>
           </ul>
           {/*
-
+              这里是右上角菜单
           */}
-          <div className="aui-popup aui-popup-top-right" style={{top: 50}} id="top-right">
+          {/*<div className="aui-popup aui-popup-top-right" style={{top: 50}} id="top-right">
             <div className="aui-popup-arrow"/>
             <div className="aui-popup-content">
               <ul className="aui-list aui-list-noborder">
@@ -148,18 +140,18 @@ class DialogDemo extends React.Component {
                   <div className="aui-list-item-label-icon">
                     <i className="aui-iconfont aui-icon-star aui-text-danger"/>
                   </div>
-                  <div className="aui-list-item-inner">
+                  <a href="/login" className="aui-list-item-inner">
                     登录
 
-                    {/*
 
 
-                    */}
-                  </div>
+
+
+                  </a>
                 </li>
               </ul>
             </div>
-          </div>
+          </div>*/}
         </section>
       </div>
     );
@@ -170,7 +162,7 @@ class DialogDemo extends React.Component {
 if(typeof document !== 'undefined') {
   require('../../css/main.less');
   require('./style.less');
-  ReactDOM.render(<DialogDemo/>, document.getElementById('root'));
+  ReactDOM.render(<IndexPage/>, document.getElementById('root'));
 }
 
-export default DialogDemo;
+export default IndexPage;

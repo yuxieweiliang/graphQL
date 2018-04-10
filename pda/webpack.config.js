@@ -1,13 +1,16 @@
 const webpack = require('webpack');
 const path = require('path');
-const publicPath =path.resolve(__dirname, './build');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin'); // 清理
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const publicPath =path.resolve(__dirname, './build');
+
 
 const config = {
   entry: {
     home: path.join(__dirname, './src/home'),
+    login: path.join(__dirname, './src/login'),
+    register: path.join(__dirname, './src/register'),
     products: path.join(__dirname, './src/products'),
     enterprise: path.join(__dirname, './src/enterprise'),
     vendors: ['react', 'react-dom', 'react-weui']
@@ -71,10 +74,10 @@ const config = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(['./build/'], {
+    new CleanWebpackPlugin(['build']/*, {
       verbose: true,
       dry: false,
-    }),
+    }*/),
     new ExtractTextPlugin('[name].css'),
 
     /*new HtmlWebpackPlugin({
@@ -91,24 +94,14 @@ const config = {
       minChunks: Infinity,
     }),
 
-    /*new webpack.DefinePlugin({
+    new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV)
       }
-    })*/
+    })
   ],
 
-  // 如果命令行中配置了--port 则会优先命令行
-  /*devServer: {
-    hot: true, // 告诉 dev-server 我们在使用 HMR
-    contentBase: publicPath,
-    port: 8081,
-    host: 'localhost',
-    historyApiFallback: true,
-    noInfo: false,
-    stats: 'minimal',
-    publicPath: '/'
-  }*/
+
 };
 
 

@@ -1,0 +1,33 @@
+"devDependencies": {
+  "babel": "^6.23.0",
+  "babel-core": "^6.26.0",
+  "babel-loader": "^7.1.4",
+  "babel-preset-es2015": "^6.24.1",
+  "babel-preset-react": "^6.24.1",
+  "babel-preset-stage-0": "^6.24.1",
+  "clean-webpack-plugin": "^0.1.19",
+  "css-loader": "^0.28.11",
+  "file-loader": "^1.1.11",
+  "html-webpack-plugin": "^3.2.0",
+  "less-loader": "^4.1.0",
+  "webpack": "^3.4.1",
+  "webpack-dev-server": "^2.6.1",
+  "style-loader": "^0.20.3"
+},
+"dependencies": {
+  "formidable": "^1.2.1",
+  "isomorphic-fetch": "^2.2.1",
+  "jsonwebtoken": "^8.2.0",
+  "koa": "^2.5.0",
+  "koa-jwt": "^3.3.1",
+  "koa-redis": "^3.1.2",
+  "koa-router": "^7.4.0",
+  "koa-session-redis": "^1.1.0",
+  "koa-static": "^4.0.2",
+  "koa2-cors": "^2.0.5",
+  "mongoose": "^5.0.12",
+  "react": "^16.2.0",
+  "react-dom": "^16.2.0",
+  "react-router-dom": "^4.2.2",
+  "redis": "^2.8.0"
+}
