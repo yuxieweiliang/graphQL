@@ -15,6 +15,8 @@ export default class extends RootView {
     return(<OutView>
       <div className="wrapper wrapper-content animated fadeInRight">
         <div className="row">
+
+
           <div className="col-sm-12">
             <div className="ibox float-e-margins">
               <div className="ibox-title">
@@ -27,7 +29,6 @@ export default class extends RootView {
               </div>
               <div className="ibox-content">
 
-<<<<<<< HEAD
               <table className="table table-bordered">
                 <thead>
                 <tr>
@@ -55,38 +56,11 @@ export default class extends RootView {
                 }
                 </tbody>
               </table>
-=======
-                <table className="table table-bordered">
-                  <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>分类名称</th>
-                    <th>操作</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  {
-                    this.state.classify && (
-                      this.state.classify.map((items, i) => {
-                        return (
-                          <tr key={i}>
-                            <td>{i}</td>
-                            <td>{items.name }</td>
-                            <td>
-                              <Link to="product-add" className="btn btn-primary btn-sm">编辑</Link>
-                              <button className="btn btn-danger btn-sm">删除</button>
-                            </td>
-                          </tr>
-                        )
-                      })
-                    )
-                  }
-                  </tbody>
-                </table>
               </div>
->>>>>>> bc90f470b6fe40a654e99bdca2ced3b351127673
             </div>
           </div>
+
+
           <div className="col-sm-12">
             <div className="ibox float-e-margins">
               <div className="ibox-title">
@@ -98,8 +72,6 @@ export default class extends RootView {
                 </div>
               </div>
               <div className="ibox-content">
-
-<<<<<<< HEAD
               <table className="table table-bordered">
                 <thead>
                 <tr>
@@ -109,34 +81,6 @@ export default class extends RootView {
                   <th width="20%" className="text-center">操作</th>
                 </tr>
                 </thead>
-                <tbody>
-                {
-                  this.state.products && (
-                    this.state.products.map((items, i) => {
-                      return (
-                        <tr key={i}>
-                          <td>{i}</td>
-                          <td>{items.name}</td>
-                          <td>{items.classify_name }</td>
-                          <td className="text-center">
-                            {/*<Link to="product-add" className="btn btn-primary btn-sm">编辑</Link>*/}
-                            <button onClick={e => this._productRemove(items)} className="btn btn-danger btn-sm">删除</button>
-                          </td>
-                        </tr>
-                      )
-                    })
-                  )
-                }
-=======
-                <table className="table table-bordered">
-                  <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>名称</th>
-                    <th>分类</th>
-                    <th>操作</th>
-                  </tr>
-                  </thead>
                   <tbody>
                   {
                     this.state.products && (
@@ -147,7 +91,7 @@ export default class extends RootView {
                             <td>{items.name}</td>
                             <td>{items.classify_name }</td>
                             <td>
-                              <Link to="product-add" className="btn btn-primary btn-sm">编辑</Link>
+                              <Link to={`product-add?${items._id}`} className="btn btn-primary btn-sm">编辑</Link>
                               <button onClick={e => this._productRemove(items)} className="btn btn-danger btn-sm">删除</button>
                             </td>
                           </tr>
@@ -155,7 +99,6 @@ export default class extends RootView {
                       })
                     )
                   }
->>>>>>> bc90f470b6fe40a654e99bdca2ced3b351127673
 
                   </tbody>
                 </table>
@@ -186,19 +129,6 @@ export default class extends RootView {
           </div>
         </div>
 
-<<<<<<< HEAD
-      <div className="modal fade" id="addProduct" tabindex="-1" role="dialog" aria-labelledby="addProductLabel" aria-hidden="true">
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <button type="button" className="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              <h4 className="modal-title" id="myModalLabel">选择分类</h4>
-            </div>
-            <div className="modal-body row">
-              <div className="col-sm-12 form-group">
-                <label className="col-sm-2 control-label">分类</label>
-                <div className="col-sm-8">
-=======
         <div className="modal fade" id="addProduct" tabindex="-1" role="dialog" aria-labelledby="addProductLabel" aria-hidden="true">
           <div className="modal-dialog">
             <div className="modal-content">
@@ -206,50 +136,42 @@ export default class extends RootView {
                 <button type="button" className="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 className="modal-title" id="myModalLabel">选择分类</h4>
               </div>
-              <div className="modal-body">
-                <div className="input-group">
-                  <span className="input-group-addon">分类</span>
->>>>>>> bc90f470b6fe40a654e99bdca2ced3b351127673
-                  <select  type="text" className="form-control">
-                    {
-                      this.state.classify && (
-                        this.state.classify.map((items, i) => {
-                          return (
-                            <option
-                              key={i}
-                              onClick={() => _this._changeProductClass(items)}
-                              value={items.name }>
-                              {items.name }
-                            </option>
-                          )
-                        })
-                      )
-                    }
-                  </select>
+              <div className="modal-body row">
+                <div className="col-sm-12 form-group">
+                  <div className="input-group">
+                    <span className="input-group-addon">分&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;类：</span>
+                    <select  type="text" className="form-control">
+                      {
+                        this.state.classify && (
+                          this.state.classify.map((items, i) => {
+                            return (
+                              <option
+                                key={i}
+                                onClick={() => _this._changeProductClass(items)}
+                                value={items.name }>
+                                {items.name }
+                              </option>
+                            )
+                          })
+                        )
+                      }
+                    </select>
+                  </div>
                 </div>
-<<<<<<< HEAD
-
-              </div>
               <div className="col-sm-12 form-group">
-                <label className="col-sm-2 control-label">产品名称</label>
-                <div className="col-sm-8">
-                  <input onChange={this._changeProductName} type="text" className="form-control"/>
-                </div>
-=======
                 <div className="input-group">
-                  <span className="input-group-addon">产品名称</span>
+                  <span className="input-group-addon">产品名称：</span>
                   <input onChange={this._changeProductName} type="text" className="form-control"/>
                 </div>
+              </div>
               </div>
               <div className="modal-footer">
                 <button type="button" className="btn btn-default" data-dismiss="modal">关闭</button>
                 <button onClick={this._addProduct} type="button" className="btn btn-primary">提交</button>
->>>>>>> bc90f470b6fe40a654e99bdca2ced3b351127673
               </div>
             </div>
           </div>
         </div>
-
 
       </div>
     </OutView>)

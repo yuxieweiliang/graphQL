@@ -4,10 +4,9 @@ export default {
   },
   componentWillMount() {
     const _this = this
-    const {match} = this.props
 
     // 加载产品列表
-    this.api.updateOneProduct(match.params.id).then(res => {
+    this.api.updateOneProduct(window.location.href.split('?')[1]).then(res => {
       _this.setState({product: res.data})
     });
   },

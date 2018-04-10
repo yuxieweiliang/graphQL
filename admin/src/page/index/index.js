@@ -20,10 +20,10 @@ export default class extends RootView {
                 <h5>首页设置</h5>
                 <div className="ibox-tools">
                   <a className="collapse-link">
-                    <i className="fa fa-chevron-up"></i>
+                    <i className="fa fa-chevron-up"/>
                   </a>
                   <a className="dropdown-toggle" data-toggle="dropdown" href="form_basic.html#">
-                    <i className="fa fa-wrench"></i>
+                    <i className="fa fa-wrench"/>
                   </a>
                   <ul className="dropdown-menu dropdown-user">
                     <li><a href="form_basic.html#">选项1</a>
@@ -32,7 +32,7 @@ export default class extends RootView {
                     </li>
                   </ul>
                   <a className="close-link">
-                    <i className="fa fa-times"></i>
+                    <i className="fa fa-times"/>
                   </a>
                 </div>
               </div>

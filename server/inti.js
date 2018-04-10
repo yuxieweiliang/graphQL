@@ -39,7 +39,7 @@ app.use(cors({
 });*/
 
 // jwt 认证
-jwt(app)
+jwt(app);
 
 // redis 使用缓存
  redis(app);

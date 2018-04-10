@@ -27,35 +27,41 @@ class IndexPage extends RootView {
     ))
   }*/
 
-  componentWillMount() {
-
-  }
   render() {
+    let _this = this
+    let { banner, products, menu } = this.state
     let iconArr = this.state.config.icon;
     console.log(this)
     return (
       <Layout>
-        <Header className="header" style={{ height: '40px' , display: 'flex'}}>
+        <Header  className="header" style={{ height: '40px' , display: 'flex'}}>
           <div className="logo"  style={{ width: '120px' }}><i className="fa fa-lemon-o"/></div>
           <Menu
             theme="dark"
             mode="horizontal"
             defaultSelectedKeys={['1']}
             style={{ lineHeight: '40px' }}
+            onSelect={_this._changeMenu}
           >
-            <Menu.Item key="1">网站首页</Menu.Item>
-            <Menu.Item key="2">产品分类fdsafdsa</Menu.Item>
-            <Menu.Item key="3">新闻资讯</Menu.Item>
-            <Menu.Item key="4">关于我们</Menu.Item>
+            {
+              menu && (
+                menu.map((item, i) => (
+                  <Menu.Item key={i}>{item}</Menu.Item>
+                ))
+              )
+            }
           </Menu>
         </Header>
         <Layout>
           <Content style={{ background: '#fff', padding: 0, margin: 0 }}>
             <Carousel autoplay>
-              <div><img src={require('../../public/image/banner.jpg')} alt=""/></div>
-              <div><img src={require('../../public/image/banner.jpg')} alt=""/></div>
-              <div><img src={require('../../public/image/banner.jpg')} alt=""/></div>
-              <div><img src={require('../../public/image/banner.jpg')} alt=""/></div>
+              {
+                banner && (
+                  banner.map(item => (
+                    <div><img src={item.url} alt=""/></div>
+                  ))
+                )
+              }
             </Carousel>
             {/*<Row className="hospital-advantage">
               <Col md={{ span: 24 }} lg={{ span: 20, offset: 2 }}>
@@ -76,48 +82,21 @@ class IndexPage extends RootView {
                 </div>
               </Col>
               <Col md={{ span: 24 }} lg={{ span: 20, offset: 2 }} style={{display: 'flex', flexFlow: 'wrap'}}>
-                <Card
-                  hoverable
-                  style={{ width:  'calc(25% - 8px)', margin: '4px' }}
-                  cover={<img alt="example" src={require('../../public/image/01.png')} />}>
-                  <Meta title="Europe Street beat" description="www.instagram.com"/>
-                </Card>
-                <Card
-                  hoverable
-                  style={{ width:  'calc(25% - 8px)', margin: '4px' }}
-                  cover={<img alt="example" src={require('../../public/image/02.png')} />}>
-                  <Meta title="Europe Street beat" description="www.instagram.com"/>
-                </Card>
-                <Card
-                  hoverable
-                  style={{ width:  'calc(25% - 8px)', margin: '4px' }}
-                  cover={<img alt="example" src={require('../../public/image/01.png')} />}>
-                  <Meta title="Europe Street beat" description="www.instagram.com"/>
-                </Card>
-                <Card
-                  hoverable
-                  style={{ width:  'calc(25% - 8px)', margin: '4px' }}
-                  cover={<img alt="example" src={require('../../public/image/02.png')} />}>
-                  <Meta title="Europe Street beat" description="www.instagram.com"/>
-                </Card>
-                <Card
-                  hoverable
-                  style={{ width: 'calc(25% - 8px)', margin: '4px' }}
-                  cover={<img alt="example" src={require('../../public/image/01.png')} />}>
-                  <Meta title="Europe Street beat" description="www.instagram.com"/>
-                </Card>
-                <Card
-                  hoverable
-                  style={{ width:  'calc(25% - 8px)', margin: '4px' }}
-                  cover={<img alt="example" src={require('../../public/image/01.png')} />}>
-                  <Meta title="Europe Street beat" description="www.instagram.com"/>
-                </Card>
-                <Card
-                  hoverable
-                  style={{ width:  'calc(25% - 8px)', margin: '4px' }}
-                  cover={<img alt="example" src={require('../../public/image/02.png')} />}>
-                  <Meta title="Europe Street beat" description="www.instagram.com"/>
-                </Card>
+                {
+                  products && (
+                    products.map((item, i) => {
+                      return (
+                        <Card
+                          key={i}
+                          hoverable
+                          style={{ width:  'calc(25% - 8px)', margin: '4px' }}
+                          cover={<img alt="example" src={item.images[0]} />}>
+                          <Meta title={item.name} description="www.instagram.com"/>
+                        </Card>
+                      )
+                    })
+                  )
+                }
               </Col>
             </Row>
           </Content>

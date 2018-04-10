@@ -1,6 +1,7 @@
 
 export default {
   state: {
+    menu: ['网站首页', '产品分类', '新闻资讯', '关于我们'],
     config: {
       icon: [
         {icon: 'mobile', title: '关注微信', color: '#dd0908'},
@@ -17,6 +18,27 @@ export default {
       ]
     },
   },
-  func: {
+  componentWillMount() {
+    let _this = this
+    this.api.getToken().then(function(data) {
+      _this.method.local.set('token', data.token)
+      _this._getBanner()
+      _this._getProducts()
+    })
+  },
+  _getBanner: function() {
+    let _this = this
+    _this.api.getBanner().then(res => {
+      _this.setState({banner: res.data})
+    })
+  },
+  _getProducts: function() {
+    let _this = this
+    _this.api.updateProduct().then(res => {
+      _this.setState({products: res.data})
+    })
+  },
+  _changeMenu(menu) {
+    console.log(menu)
   }
 };

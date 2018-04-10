@@ -1,7 +1,7 @@
 import IndexView from './page/index'
 import Enterprise from './page/enterprise'
 import Product from './page/product'
-import AddProduct from './page/product/add'
+import AddProduct from './page/product-add'
 import Recruit from './page/recruit'
 import Login from './page/login'
 import Register from './page/register'
@@ -28,7 +28,7 @@ export default [
     sidebar: () => <div>shoelaces!</div>,
     main: Product
   },
-  { path: '/product-add/:id',
+  { path: '/product-add',
     sidebar: () => <div>shoelaces!</div>,
     main: AddProduct
   },

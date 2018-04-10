@@ -11,10 +11,10 @@ const secret = 'jwt beautiful story'
 
 export default function(app) {
 
-  /*app.use(jwtKoa({secret}).unless({
+  app.use(jwtKoa({secret}).unless({
     //数组中的路径不需要通过jwt验证
-    path: [/^\/system\/register/, /^\/system\/login/,]
-  }))*/
+    path: [/^\/system\/register/, /^\/system\/login/, /^\/system\/token/,]
+  }))
 
   app.use(async function(ctx, next) {
 

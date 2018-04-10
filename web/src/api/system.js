@@ -2,6 +2,12 @@ import { system } from './type/type'
 
 export default {
   /**
+   * 获取token
+   */
+  getToken: function () {
+    return this.ajax.get({url: system.token})
+  },
+  /**
    * 登陆
    */
   login: function (params) {

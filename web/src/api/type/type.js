@@ -12,6 +12,7 @@ const createApi = function(common) {
  */
 const systemRoot = createApi('system');
 export const system = {
+  token: systemRoot('token'),
   login: systemRoot('login'),
   register: systemRoot('register'),
 };

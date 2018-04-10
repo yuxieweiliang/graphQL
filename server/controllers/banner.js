@@ -1,14 +1,9 @@
-import fs from 'fs'
 import path from 'path'
 import _ from 'lodash';
-import queryString from 'query-string'
 import mongoose from 'mongoose'
-// import multiparty from 'multiparty'
-// import formidable from 'formidable'
+import config from '../config'
 import { uploadFile } from '../update'
-import bodyData from '../bodyData'
-import os from 'os'
-import util from 'util'
+
 
 const Banner = mongoose.model('Banner');
 
@@ -22,6 +17,12 @@ const getBanner = async (ctx) => {
   // let token = ctx.get('authorization')
   // let payload = await ctx.verify(token.split(' ')[1])
   // let jwt = ctx.jwt(payload)
+
+  banner = banner.map(item => ({
+    _id: item._id,
+    url: config.root + item.url
+  }))
+
   ctx.body = JSON.stringify({
     data:  banner, // token: jwt
   });

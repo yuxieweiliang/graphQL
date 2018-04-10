@@ -4,6 +4,7 @@ import {
   Route,
   Link
 } from 'react-router-dom'
+
 export default class extends Component {
   render() {
     return(<nav className="navbar-default navbar-static-side" role="navigation">

@@ -1,5 +1,5 @@
 export default {
-<<<<<<< HEAD
+  // 组件状态
   state: {
     dynamic: null,
     introduction: null,
@@ -7,9 +7,12 @@ export default {
     _id: null,
   },
 
-  componentWillMount() {
-    this.api.getEnterpriseDynamic().then(res => this.setState({...res.data}))
-  },
+  // 组件数据
+  defaultProps: {},
+
+  // 组件数据检查
+  propTypes: {},
+
   _enterpriseDynamic(e) {
     this.setState({dynamic: e.target.value})
   },
@@ -17,18 +20,11 @@ export default {
     const { dynamic, _id } = this.state
     this.api.updateEnterpriseDynamic({dynamic, _id})
   },
-=======
-  // 组件状态
-  state: {},
-
-  // 组件数据
-  defaultProps: {},
-
-  // 组件数据检查
-  propTypes: {},
 
   // 组件渲染之前调用
-  componentWillMount() {},
+  componentWillMount() {
+    this.api.getEnterpriseDynamic().then(res => this.setState({...res.data}))
+  },
 
   // render ...
 
@@ -50,5 +46,4 @@ export default {
   // 组件将要被卸载
   componentWillUnmount() {},
 
->>>>>>> bc90f470b6fe40a654e99bdca2ced3b351127673
 };

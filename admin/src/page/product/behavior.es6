@@ -74,7 +74,7 @@ export default {
   _addProduct: function() {
     this._saveProduct().then(res => {
       $('#addProduct').modal('hide')
-      this.props.history.replace(`product-add/${res.data._id}`)
+      this.props.history.replace(`product-add?${res.data._id}`)
     })
 
   }
