@@ -23,11 +23,14 @@ app.use(cors({
   }})
 );
 
+// 创建静态资源服务器
 app.use(serve( path.resolve(ROOTS, 'dist')));
 
-
+// 把所有的路径全部重定向到首页
 router.all('/:id',async function(ctx) {
   ctx.redirect('/');
 })
+
 app.use(router.routes())
-app.listen(3030);
+
+app.listen(8031);

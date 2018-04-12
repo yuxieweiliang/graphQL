@@ -21,7 +21,7 @@ export default class extends RootView {
                 <h5>分类</h5>
                 <div className="ibox-tools">
                   <a className="collapse-link" data-toggle="modal" data-target="#addClass">
-                    <i className="fa fa-plus"></i>
+                    <i className="fa fa-plus"/>
                   </a>
                 </div>
               </div>
@@ -105,7 +105,7 @@ export default class extends RootView {
           </div>
         </div>
 
-        <div className="modal fade" id="addClass" tabindex="-1" role="dialog" aria-labelledby="addClassLabel" aria-hidden="true">
+        <div className="modal fade" id="addClass" role="dialog" aria-labelledby="addClassLabel" aria-hidden="true">
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
