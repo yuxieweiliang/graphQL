@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
+import ReactDom from 'react-dom'
 import RootView from '../../script/common'
-import { Link } from 'react-router-dom'
 import func from './behavior'
-import OutView from '../OutView'
+import OutView from '../../component/OutView'
 
-export default class extends RootView {
+class EnterpriseView extends RootView {
   constructor(props) {
     super(props)
     this.method._extend(this, func);
   }
   render() {
-
+    const { dynamic } = this.state
     return(<OutView>
       <div className="wrapper wrapper-content animated fadeInRight">
 
@@ -85,7 +85,30 @@ export default class extends RootView {
           </div>
         </div>
 
+      <div className="modal fade" id="addClass" tabindex="-1" role="dialog" aria-labelledby="addClassLabel" aria-hidden="true">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <button type="button" className="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 className="modal-title" id="myModalLabel">添加动态</h4>
+            </div>
+            <div className="modal-body row">
+              <div className="form-group">
+                <div className="col-sm-12">
+                  <textarea onChange={this._enterpriseDynamic} id="ccomment" name="comment" className="form-control" required="" aria-required="true"/>
+                </div>
+              </div>
+            </div>
+            <div className="modal-footer">
+              <button type="button" className="btn btn-default" data-dismiss="modal">关闭</button>
+              <button onClick={this._addDynamic} type="button" className="btn btn-primary">提交</button>
+            </div>
+          </div>
+        </div>
+      </div>
       </div>
     </OutView>)
   }
 }
+
+ReactDom.render(<EnterpriseView/>, document.getElementById('root'));

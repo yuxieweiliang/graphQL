@@ -6,7 +6,6 @@ import {
   Link
 } from 'react-router-dom'
 import routes from './route'
-import '../public/css/style.css'
 
 
 const BasicExample = () => {

@@ -13,8 +13,7 @@ export default {
     let token = this.method.local.get('token');
 
     if(!token) {
-      this.props.history.push('/login')
-      // window.location.href = '/login'
+      window.location.href = '/login.html'
     }
 
     // 默认六张海报
@@ -23,11 +22,13 @@ export default {
     }
 
     this.api.getBanner().then(function(data) {
-      data.data.map((item, i) => {
-        banner[i] = item
-      })
-      _this.setState({banner})
-      // console.log(_this.state.banner)
+      if(data.data.length > 0) {
+        data.data.map((item, i) => {
+          banner[i] = item
+        })
+        _this.setState({banner})
+      }
+      console.log(_this.state.banner)
     })
 
   },
@@ -62,7 +63,7 @@ export default {
     if(this.state.update) {
       this.api.updateBanner(this.state.update).then(res => {
         banner[i] = res
-        _this.setState({banner})
+        _this.setState({banner: _this.config.api + banner})
       })
     }
   },

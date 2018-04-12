@@ -1,28 +1,26 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { Layout, Menu, Breadcrumb, Tabs, Tag, Row, Col, Card } from 'antd';
-import data from './behavior'
-import 'antd/dist/antd.less';
-import '../../bower_components/font-awesome/less/font-awesome.less';
+import func from './behavior'
 import './style.less'
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 const { Meta } = Card;
+import RootView from '../script/common'
 const CheckableTag = Tag.CheckableTag;
 
-class IndexPage extends Component {
+class IndexPage extends RootView {
   constructor(props) {
     super(props);
     this.state = {
-      checkedTag: 'Books'
     };
+    this.method._extend(this, func);
   }
 
   render() {
-    const { checkedTag } = this.state;
-    const tagsFromServer = ['Movies', 'Books', 'Music', 'Sports'];
-    let url = 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1517477683043&di=5b97b9672ab731243cd9d9c649d9b5e0&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F8%2F587838ab5358e.jpg';
-    console.log(checkedTag);
+    const { banner, products, checkedTag, tagsFromServer } = this.state;
+    let url = banner && banner[0].url;
+    console.log(products);
     return (
       <Layout>
         <Header className="header" style={{ height: '40px' , display: 'flex'}}>
@@ -33,10 +31,10 @@ class IndexPage extends Component {
             defaultSelectedKeys={['1']}
             style={{ lineHeight: '40px' }}
           >
-            <Menu.Item key="1">网站首页</Menu.Item>
-            <Menu.Item key="2">产品分类</Menu.Item>
-            <Menu.Item key="3">新闻资讯</Menu.Item>
-            <Menu.Item key="4">关于我们</Menu.Item>
+            <Menu.Item key="0">网站首页</Menu.Item>
+            <Menu.Item key="1">产品分类</Menu.Item>
+            <Menu.Item key="2">新闻资讯</Menu.Item>
+            <Menu.Item key="3">关于我们</Menu.Item>
           </Menu>
         </Header>
         <Layout>
@@ -48,7 +46,7 @@ class IndexPage extends Component {
                 </div>
               </Col>
             </Row>
-            <Row className="hospital-classify" style={{paddingTop: '20px', paddingBottom: '20px'}}>
+            {/*<Row className="hospital-classify" style={{paddingTop: '20px'}}>
               <Col md={{ span: 24 }} lg={{ span: 14, offset: 5 }} style={{display: 'flex', paddingBottom: '20px', borderBottom: '1px solid #ccc'}}>
                 <div className="classify-name" style={{width: 50, fontWeight: 'bold'}}>分类：</div>
                 <div className="classify-tag-box">
@@ -63,8 +61,8 @@ class IndexPage extends Component {
                   ))}
                 </div>
               </Col>
-            </Row>
-            <Row className="hospital-advantage">
+            </Row>*/}
+            <Row className="hospital-advantage" style={{paddingTop: '20px'}}>
               <Col md={{ span: 24 }} lg={{ span: 14, offset: 5 }}>
                 <Row className="hospital-product">
                   <Col style={{display: 'flex', flexFlow: 'wrap'}}>
@@ -77,48 +75,18 @@ class IndexPage extends Component {
                     </div>
                   </Col>
                   <Col style={{display: 'flex', flexFlow: 'wrap'}}>
-                    <Card
-                      hoverable
-                      style={{ width: 'calc((100% - 40px) / 5)', margin: '4px' }}
-                      cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}>
-                      <Meta title="Europe Street beat" description="www.instagram.com"/>
-                    </Card>
-                    <Card
-                      hoverable
-                      style={{ width: 'calc((100% - 40px) / 5)', margin: '4px' }}
-                      cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}>
-                      <Meta title="Europe Street beat" description="www.instagram.com"/>
-                    </Card>
-                    <Card
-                      hoverable
-                      style={{ width: 'calc((100% - 40px) / 5)', margin: '4px' }}
-                      cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}>
-                      <Meta title="Europe Street beat" description="www.instagram.com"/>
-                    </Card>
-                    <Card
-                      hoverable
-                      style={{ width: 'calc((100% - 40px) / 5)', margin: '4px' }}
-                      cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}>
-                      <Meta title="Europe Street beat" description="www.instagram.com"/>
-                    </Card>
-                    <Card
-                      hoverable
-                      style={{ width: 'calc((100% - 40px) / 5)', margin: '4px' }}
-                      cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}>
-                      <Meta title="Europe Street beat" description="www.instagram.com"/>
-                    </Card>
-                    <Card
-                      hoverable
-                      style={{ width: 'calc((100% - 40px) / 5)', margin: '4px' }}
-                      cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}>
-                      <Meta title="Europe Street beat" description="www.instagram.com"/>
-                    </Card>
-                    <Card
-                      hoverable
-                      style={{ width: 'calc((100% - 40px) / 5)', margin: '4px' }}
-                      cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}>
-                      <Meta title="Europe Street beat" description="www.instagram.com"/>
-                    </Card>
+                    {
+                      products && products.map((item, key) => (
+                        <Card
+                          hoverable
+                          onClick={() => window.location.href = `./product-item.html?${item._id}` }
+                          style={{ width: 'calc((100% - 40px) / 5)', margin: '4px' }}
+                          cover={<img alt="example" src={item.images[0]} />}>
+                          <Meta title={item.name} description={item.description}/>
+                        </Card>
+                      ))
+                    }
+
                   </Col>
                 </Row>
 

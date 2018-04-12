@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import mongoose from 'mongoose'
 import path from 'path'
+import config from '../config'
 import bodyData from '../bodyData'
 import { uploadFile } from '../update'
 
@@ -19,6 +20,11 @@ function removeResponse(obj) {
   })
 }
 
+function execProduct(product) {
+  return Object.assign(product, {images: product.images.map(item => config.root + item)})
+}
+
+
 async function product(ctx) {
   let params = ctx.request.query || ctx.query
   let products = null
@@ -27,6 +33,14 @@ async function product(ctx) {
   } else {
     products = await Product.find({}, '-__v -dates')
   }
+
+  if(products.length > 0) {
+    products = products.map(item => execProduct(item))
+  } else {
+    products = execProduct(products)
+  }
+
+  console.log(products)
 
   ctx.body = JSON.stringify({
     data: products
@@ -105,7 +119,6 @@ async function saveProductImage(ctx) {
   // 文件上传路径
   let serverFilePath = path.resolve(ROOTS, 'public', 'img');
 
-  console.log(serverFilePath)
   // 上传文件事件
   let result = await uploadFile( ctx, {
     fileType: 'banner', // common or album
@@ -113,16 +126,19 @@ async function saveProductImage(ctx) {
   });
 
   let image = null
-
+  let url = null
   let product = await Product.findById(result.formData.id)
 
   if(result.success && !_.isEmpty(product)) {
-    let url = product.images.concat(result.fileName)
+    url = product.images.concat(result.fileName)
     image = await Product.update({_id: result.formData.id}, {$set:{images: url}})
     console.log(image)
   }
 
-  ctx.body = image
+  ctx.body = {
+    ...image,
+    url: config.root + result.fileName
+  }
 
 }
 

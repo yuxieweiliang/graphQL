@@ -1,0 +1,43 @@
+.image-update-container {
+  .product-img {
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    width: 80px;
+    height: 80px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    position: relative;
+  }
+  .image-list {
+    .fa-close {
+      position: absolute;
+      font-size: 18px;
+      right: 2px;
+      top: 2px;
+      cursor: pointer;
+      &:hover {
+        color: #cd2902;
+      }
+    }
+    img {
+      width: inherit;
+    }
+  }
+  .image-update{
+    text-align: center;
+    line-height: 80px;
+    font-size: 30px;
+    .fa-plus {
+      top: calc(50% - 17px);
+      left: calc(50% - 16px);
+      position: absolute;
+    }
+    input[type=file] {
+      opacity: 0;
+      filter: opacity(alpha = 0);
+      width: inherit;
+    }
+  }
+}

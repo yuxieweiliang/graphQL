@@ -46,9 +46,19 @@ const login = async (ctx) => {
   }
 };
 
+/**
+ * token
+ */
+const token = async (ctx) => {
+  let token = ctx.jwt({other: 'other'})
+
+  ctx.body = JSON.stringify({ data:  '获取成功！', token });
+};
+
 
 
 module.exports = {
+  'GET /system/token': token,
   'POST /system/register': register,
   'GET /system/login': login
 };

@@ -16,7 +16,8 @@ const EnterpriseSchema = new Schema({
     large: String,
     small: String
   },
-
+  // 动态
+  dynamic: [String],
   // 状态
   status: String,// 'published'
   // 时间

@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
+import ReactDom from 'react-dom'
 import RootView from '../../script/common'
 import func from './behavior'
-import OutView from '../OutView'
+import OutView from '../../component/OutView'
 import './style.less'
 
-export default class extends RootView {
+class IndexView extends RootView {
   constructor(props) {
     super(props)
     this.method._extend(this, func);
   }
   render() {
+    console.log(this.state)
     return(<OutView>
       <div className="wrapper wrapper-content animated fadeInRight">
 
@@ -20,10 +22,10 @@ export default class extends RootView {
                 <h5>首页设置</h5>
                 <div className="ibox-tools">
                   <a className="collapse-link">
-                    <i className="fa fa-chevron-up"></i>
+                    <i className="fa fa-chevron-up"/>
                   </a>
                   <a className="dropdown-toggle" data-toggle="dropdown" href="form_basic.html#">
-                    <i className="fa fa-wrench"></i>
+                    <i className="fa fa-wrench"/>
                   </a>
                   <ul className="dropdown-menu dropdown-user">
                     <li><a href="form_basic.html#">选项1</a>
@@ -32,7 +34,7 @@ export default class extends RootView {
                     </li>
                   </ul>
                   <a className="close-link">
-                    <i className="fa fa-times"></i>
+                    <i className="fa fa-times"/>
                   </a>
                 </div>
               </div>
@@ -76,3 +78,6 @@ export default class extends RootView {
     </OutView>)
   }
 }
+
+
+ReactDom.render(<IndexView/>, document.getElementById('root'));

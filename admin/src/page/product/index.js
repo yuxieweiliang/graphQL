@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import ReactDom from 'react-dom'
 import RootView from '../../script/common'
-import { Link } from 'react-router-dom'
 import func from './behavior'
-import OutView from '../OutView'
-export default class extends RootView {
+import OutView from '../../component/OutView'
+
+
+class ProductView extends RootView {
   constructor(props) {
     super(props)
     this.method._extend(this, func);
@@ -15,6 +17,8 @@ export default class extends RootView {
     return(<OutView>
       <div className="wrapper wrapper-content animated fadeInRight">
         <div className="row">
+
+
           <div className="col-sm-12">
             <div className="ibox float-e-margins">
               <div className="ibox-title">
@@ -27,36 +31,38 @@ export default class extends RootView {
               </div>
               <div className="ibox-content">
 
-                <table className="table table-bordered">
-                  <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>分类名称</th>
-                    <th>操作</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  {
-                    this.state.classify && (
-                      this.state.classify.map((items, i) => {
-                        return (
-                          <tr key={i}>
-                            <td>{i}</td>
-                            <td>{items.name }</td>
-                            <td>
-                              <Link to="product-add" className="btn btn-primary btn-sm">编辑</Link>
-                              <button className="btn btn-danger btn-sm">删除</button>
-                            </td>
-                          </tr>
-                        )
-                      })
-                    )
-                  }
-                  </tbody>
-                </table>
+              <table className="table table-bordered">
+                <thead>
+                <tr>
+                  <th width="10%">#</th>
+                  <th width="70%">分类名称</th>
+                  <th className="text-center" width="20%">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                {
+                  this.state.classify && (
+                    this.state.classify.map((items, i) => {
+                      return (
+                        <tr key={i}>
+                          <td>{i}</td>
+                          <td>{items.name }</td>
+                          <td className="text-center">
+                            {/*<Link to="product-add" className="btn btn-primary btn-sm">编辑</Link>*/}
+                            <button className="btn btn-danger btn-sm">删除</button>
+                          </td>
+                        </tr>
+                      )
+                    })
+                  )
+                }
+                </tbody>
+              </table>
               </div>
             </div>
           </div>
+
+
           <div className="col-sm-12">
             <div className="ibox float-e-margins">
               <div className="ibox-title">
@@ -68,16 +74,15 @@ export default class extends RootView {
                 </div>
               </div>
               <div className="ibox-content">
-
-                <table className="table table-bordered">
-                  <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>名称</th>
-                    <th>分类</th>
-                    <th>操作</th>
-                  </tr>
-                  </thead>
+              <table className="table table-bordered">
+                <thead>
+                <tr>
+                  <th width="10%">#</th>
+                  <th width="40%">名称</th>
+                  <th width="30%">分类</th>
+                  <th width="20%" className="text-center">操作</th>
+                </tr>
+                </thead>
                   <tbody>
                   {
                     this.state.products && (
@@ -88,7 +93,7 @@ export default class extends RootView {
                             <td>{items.name}</td>
                             <td>{items.classify_name }</td>
                             <td>
-                              <Link to="product-add" className="btn btn-primary btn-sm">编辑</Link>
+                              <a href={`product-add.html?${items._id}`} className="btn btn-primary btn-sm">编辑</a>
                               <button onClick={e => this._productRemove(items)} className="btn btn-danger btn-sm">删除</button>
                             </td>
                           </tr>
@@ -133,30 +138,34 @@ export default class extends RootView {
                 <button type="button" className="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 className="modal-title" id="myModalLabel">选择分类</h4>
               </div>
-              <div className="modal-body">
-                <div className="input-group">
-                  <span className="input-group-addon">分类</span>
-                  <select  type="text" className="form-control">
-                    {
-                      this.state.classify && (
-                        this.state.classify.map((items, i) => {
-                          return (
-                            <option
-                              key={i}
-                              onClick={() => _this._changeProductClass(items)}
-                              value={items.name }>
-                              {items.name }
-                            </option>
-                          )
-                        })
-                      )
-                    }
-                  </select>
+              <div className="modal-body row">
+                <div className="col-sm-12 form-group">
+                  <div className="input-group">
+                    <span className="input-group-addon">分&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;类：</span>
+                    <select  type="text" className="form-control">
+                      {
+                        this.state.classify && (
+                          this.state.classify.map((items, i) => {
+                            return (
+                              <option
+                                key={i}
+                                onClick={() => _this._changeProductClass(items)}
+                                value={items.name }>
+                                {items.name }
+                              </option>
+                            )
+                          })
+                        )
+                      }
+                    </select>
+                  </div>
                 </div>
+              <div className="col-sm-12 form-group">
                 <div className="input-group">
-                  <span className="input-group-addon">产品名称</span>
+                  <span className="input-group-addon">产品名称：</span>
                   <input onChange={this._changeProductName} type="text" className="form-control"/>
                 </div>
+              </div>
               </div>
               <div className="modal-footer">
                 <button type="button" className="btn btn-default" data-dismiss="modal">关闭</button>
@@ -166,8 +175,8 @@ export default class extends RootView {
           </div>
         </div>
 
-
       </div>
     </OutView>)
   }
 }
+ReactDom.render(<ProductView/>, document.getElementById('root'));

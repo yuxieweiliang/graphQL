@@ -10,7 +10,7 @@ const ROOTS = process.cwd();
 const config = {
   // 坑爹的输出文件顺序竟然是按照字母排序来的
   entry: {
-    'js/index': './src/router'
+    /*'js/index': './src/router'*/
    /* 'js/app': './src/home',
     'js/product': './src/product',*/
     // 将所有公用的东西都放在一个文件里
@@ -78,12 +78,12 @@ const config = {
     // 清除dist下的文件
     // 每次编译的时候，将之前编译的清空
    new CleanWebpackPlugin(['dist']),
-    new HtmlWebpackPlugin({
+    /*new HtmlWebpackPlugin({
       title: '美丽故事',
       filename: 'index.html',
       template: 'index.html',
       inject: 'body',
-    }),
+    }),*/
     new webpack.optimize.CommonsChunkPlugin({
       name: 'common',
       filename: "js/common.js",
@@ -107,10 +107,10 @@ const config = {
     publicPath: '/'
   }
 };
-/*var pageArr = ['index']*/
-
-/*pageArr.map(item => {
-  var plugins = new HtmlWebpackPlugin({
+let pageArr = ['index', 'enterprise', 'login', 'product', 'product-add', 'recruit', 'register']
+//
+pageArr.map(item => {
+  let plugins = new HtmlWebpackPlugin({
       title: item,
       filename: item + '.html',
       template: 'index.html',
@@ -118,10 +118,11 @@ const config = {
       chunks: ['common', 'js/' + item]
     })
 
-  config.entry['js/' + item] =  './src/' + item
+  config.entry['js/' + item] =  './src/page/' + item
   config.plugins.push(plugins)
-})*/
+})
 
+// 'js/index': './src/router'
 console.log(config.entry)
 
 module.exports = config;

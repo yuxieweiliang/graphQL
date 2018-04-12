@@ -5,7 +5,7 @@ export default {
 
   },
   componentWillMount() {
-    console.log()
+    // console.log()
     this.method.local.remove('token')
   },
   changeUsername: function(e) {

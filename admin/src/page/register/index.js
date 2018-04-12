@@ -1,11 +1,12 @@
 import React from 'react';
+import ReactDom from 'react-dom'
 import RootView from '../../script/common'
 import func from './behavior'
 import './style.less'
 
 
 // 进行组装
-export default class extends RootView {
+class RegisterView extends RootView {
   constructor(props) {
     super(props)
     this.method._extend(this, func);
@@ -68,3 +69,4 @@ export default class extends RootView {
     </div>)
   }
 }
+ReactDom.render(<RegisterView/>, document.getElementById('root'));

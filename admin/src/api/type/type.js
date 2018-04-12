@@ -8,7 +8,7 @@ const createApi = function(common) {
 };
 
 /**
- * 公共api
+ * 系统api
  */
 const systemRoot = createApi('system');
 export const system = {
@@ -17,7 +17,7 @@ export const system = {
 };
 
 /**
- * 公共api
+ * 用户api
  */
 const userRoot = createApi('user');
 export const user = {
@@ -26,7 +26,7 @@ export const user = {
 };
 
 /**
- * 公共api
+ * 海报api
  */
 const bannerRoot = createApi('banner');
 export const banner = {
@@ -36,7 +36,7 @@ export const banner = {
 };
 
 /**
- * 公共api
+ * 产品api
  */
 const productRoot = createApi('product');
 export const product = {
@@ -48,11 +48,21 @@ export const product = {
 };
 
 /**
- * 公共api
+ * 分类api
  */
 const classRoot = createApi('class');
 export const classify = {
   list: classRoot(''),
   save: classRoot('save'),
   remove: classRoot('remove'),
+};
+
+/**
+ * 企业api
+ */
+const enterpriseRoot = createApi('enterprise');
+export const enterprise = {
+  list: enterpriseRoot(''),
+  dynamic: enterpriseRoot('dynamic'),
+  remove: enterpriseRoot('remove'),
 };

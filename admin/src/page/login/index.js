@@ -1,12 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import ReactDom from 'react-dom'
 import RootView from '../../script/common'
 import func from './behavior'
 import './style.less'
 
 
 // 进行组装
-export default class extends RootView {
+class LoginView extends RootView {
   constructor(props) {
     super(props)
     this.method._extend(this, func);
@@ -25,7 +25,7 @@ export default class extends RootView {
             <input type="password" onChange={this.changePassword} className="form-control pword m-b" placeholder="密码" />
             {/*<a href="">忘记密码了？</a>*/}
             <button type="button" onClick={this.login} className="btn btn-success btn-block">登录</button>
-            <p className="m-t-md"><Link to="/register">注册</Link></p>
+            <p className="m-t-md"><a href="/register">注册</a></p>
 
           </form>
         </div>
@@ -34,3 +34,5 @@ export default class extends RootView {
     </div>)
   }
 }
+
+ReactDom.render(<LoginView/>, document.getElementById('root'));

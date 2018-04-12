@@ -1,6 +1,11 @@
 export default {
   // 组件状态
-  state: {},
+  state: {
+    dynamic: null,
+    introduction: null,
+    name: null,
+    _id: null,
+  },
 
   // 组件数据
   defaultProps: {},
@@ -8,8 +13,18 @@ export default {
   // 组件数据检查
   propTypes: {},
 
+  _enterpriseDynamic(e) {
+    this.setState({dynamic: e.target.value})
+  },
+  _addDynamic() {
+    const { dynamic, _id } = this.state
+    this.api.updateEnterpriseDynamic({dynamic, _id})
+  },
+
   // 组件渲染之前调用
-  componentWillMount() {},
+  componentWillMount() {
+    this.api.getEnterpriseDynamic().then(res => this.setState({...res.data}))
+  },
 
   // render ...
 

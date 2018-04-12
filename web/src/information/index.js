@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { Layout, Menu, Breadcrumb, Tabs, Carousel, Row, Col, Card } from 'antd';
 import data from './behavior'
-import 'antd/dist/antd.less';
-import '../../bower_components/font-awesome/less/font-awesome.less';
 import './style.less'
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -31,13 +29,13 @@ class IndexPage extends Component {
           <Menu
             theme="dark"
             mode="horizontal"
-            defaultSelectedKeys={['1']}
+            defaultSelectedKeys={['2']}
             style={{ lineHeight: '40px' }}
           >
-            <Menu.Item key="1">网站首页</Menu.Item>
-            <Menu.Item key="2">产品分类</Menu.Item>
-            <Menu.Item key="3">新闻资讯</Menu.Item>
-            <Menu.Item key="4">关于我们</Menu.Item>
+            <Menu.Item key="0">网站首页</Menu.Item>
+            <Menu.Item key="1">产品分类</Menu.Item>
+            <Menu.Item key="2">新闻资讯</Menu.Item>
+            <Menu.Item key="3">关于我们</Menu.Item>
           </Menu>
         </Header>
         <Layout>

@@ -59,7 +59,6 @@ export default {
   _addMsg: function(e, key) {
     let product = _.extend({}, this.state.product);
     product[key] = e.target.value
-    console.log(product)
 
     this.setState({ product })
   },
@@ -74,7 +73,7 @@ export default {
   _addProduct: function() {
     this._saveProduct().then(res => {
       $('#addProduct').modal('hide')
-      this.props.history.replace(`product-add/${res.data._id}`)
+      window.location.href = `/product-add?${res.data._id}`
     })
 
   }
