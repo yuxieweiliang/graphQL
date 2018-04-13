@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { Layout, Menu, Breadcrumb, Tabs, Carousel, Row, Col, Card } from 'antd';
+import HeaderView from '../../component/headerView'
 import data from './behavior'
 import './style.less'
-const { SubMenu } = Menu;
-const { Header, Content, Sider } = Layout;
-const { Meta } = Card;
 
 class IndexPage extends Component {
   createIcon(option) {
@@ -24,22 +22,9 @@ class IndexPage extends Component {
     let iconArr = data.config.icon;
     return (
       <Layout>
-        <Header className="header" style={{ height: '40px' , display: 'flex'}}>
-          <div className="logo"  style={{ width: '120px' }}><i className="fa fa-lemon-o"/></div>
-          <Menu
-            theme="dark"
-            mode="horizontal"
-            defaultSelectedKeys={['2']}
-            style={{ lineHeight: '40px' }}
-          >
-            <Menu.Item key="0">网站首页</Menu.Item>
-            <Menu.Item key="1">产品分类</Menu.Item>
-            <Menu.Item key="2">新闻资讯</Menu.Item>
-            <Menu.Item key="3">关于我们</Menu.Item>
-          </Menu>
-        </Header>
+        <HeaderView defaultMenuKey="2"/>
         <Layout>
-          <Content style={{ background: '#fff', padding: 0, margin: 0 }}>
+          <Layout.Content style={{ background: '#fff', padding: 0, margin: 0 }}>
             <Breadcrumb style={{ margin: '16px' }}>
               <Breadcrumb.Item>Home</Breadcrumb.Item>
               <Breadcrumb.Item>List</Breadcrumb.Item>
@@ -51,7 +36,7 @@ class IndexPage extends Component {
               </Col>
             </Row>
             <button type="button" className="shit"><span>登录</span></button>
-          </Content>
+          </Layout.Content>
         </Layout>
       </Layout>
     )

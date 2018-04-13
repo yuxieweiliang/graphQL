@@ -5,7 +5,7 @@
   "main": "yufei.xue",
   "scripts": {
     "dev": "webpack-dev-server --port 8090 --open --watch",
-    "build": "webpack",
+    "build": "webpack --watch",
     "test": "npm run start"
   },
   "keywords": [

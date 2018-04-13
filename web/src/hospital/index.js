@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { Layout, Menu, Breadcrumb, Icon, Avatar, Row, Col, Card } from 'antd';
+import HeaderView from '../../component/headerView'
 import data from './behavior'
 import './style.less'
-const { SubMenu } = Menu;
-const { Header, Content, Sider } = Layout;
-const { Meta } = Card;
 
 class IndexPage extends Component {
   createIcon(option) {
@@ -21,22 +19,10 @@ class IndexPage extends Component {
     ))
   }
   render() {
+    let iconArr = data.config.icon;
     return (
       <Layout>
-        <Header className="header" style={{ height: '40px' , display: 'flex'}}>
-          <div className="logo"  style={{ width: '120px' }}><i className="fa fa-lemon-o"/></div>
-          <Menu
-            theme="dark"
-            mode="horizontal"
-            defaultSelectedKeys={['4']}
-            style={{ lineHeight: '40px' }}
-          >
-            <Menu.Item key="0">网站首页</Menu.Item>
-            <Menu.Item key="1">产品分类</Menu.Item>
-            <Menu.Item key="2">新闻资讯</Menu.Item>
-            <Menu.Item key="3">关于我们</Menu.Item>
-          </Menu>
-        </Header>
+        <HeaderView defaultMenuKey="3"/>
         <Layout>
 
           <Row className="hospital-advantage">
@@ -47,61 +33,61 @@ class IndexPage extends Component {
             <Row className="hospital-advantage">
               <Col md={{ span: 24 }} lg={{ span: 20, offset: 2 }}>
                 <Layout>
-                <Sider width={200} style={{ background: '#fff' }}>
+                <Layout.Sider width={200} style={{ background: '#fff' }}>
                   <Menu
                     mode="inline"
                     defaultSelectedKeys={['1']}
                     defaultOpenKeys={['sub1']}
                     style={{ height: '100%', borderRight: 0 }}
                   >
-                    <SubMenu key="sub1" title={<span><Icon type="user" />subnav 1</span>}>
+                    <Menu.SubMenu key="sub1" title={<span><Icon type="user" />subnav 1</span>}>
                       <Menu.Item key="1">option1</Menu.Item>
                       <Menu.Item key="2">option2</Menu.Item>
                       <Menu.Item key="3">option3</Menu.Item>
                       <Menu.Item key="4">option4</Menu.Item>
-                    </SubMenu>
-                    <SubMenu key="sub2" title={<span><Icon type="laptop" />subnav 2</span>}>
+                    </Menu.SubMenu>
+                    <Menu.SubMenu key="sub2" title={<span><Icon type="laptop" />subnav 2</span>}>
                       <Menu.Item key="5">option5</Menu.Item>
                       <Menu.Item key="6">option6</Menu.Item>
                       <Menu.Item key="7">option7</Menu.Item>
                       <Menu.Item key="8">option8</Menu.Item>
-                    </SubMenu>
-                    <SubMenu key="sub3" title={<span><Icon type="notification" />subnav 3</span>}>
+                    </Menu.SubMenu>
+                    <Menu.SubMenu key="sub3" title={<span><Icon type="notification" />subnav 3</span>}>
                       <Menu.Item key="9">option9</Menu.Item>
                       <Menu.Item key="10">option10</Menu.Item>
                       <Menu.Item key="11">option11</Menu.Item>
                       <Menu.Item key="12">option12</Menu.Item>
-                    </SubMenu>
+                    </Menu.SubMenu>
                   </Menu>
-                </Sider>
+                </Layout.Sider>
                 <Layout style={{ padding: '0 24px 24px' }}>
                   <Breadcrumb style={{ margin: '16px 0' }}>
                     <Breadcrumb.Item>Home</Breadcrumb.Item>
                     <Breadcrumb.Item>List</Breadcrumb.Item>
                     <Breadcrumb.Item>App</Breadcrumb.Item>
                   </Breadcrumb>
-                  <Content style={{ background: '#fff', margin: 0, minHeight: 580 }}>
+                  <Layout.Content style={{ background: '#fff', margin: 0, minHeight: 580 }}>
                     <Card
                       type="inner"
                       title="Inner Card title"
                       extra={<a href="#">More</a>}
                     >
                       <Row>
-                        <Meta
+                        <Card.Meta
                           avatar={<img style={{width: 100}} src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
                           title="Card title"
                           description="This is the description"
                         />
                       </Row>
                       <Row>
-                        <Meta
+                        <Card.Meta
                           avatar={<img style={{width: 100}} src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
                           title="Card title"
                           description="This is the description"
                         />
                       </Row>
                       <Row>
-                        <Meta
+                        <Card.Meta
                           avatar={<img style={{width: 100}} src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
                           title="Card title"
                           description="This is the description"
@@ -110,7 +96,7 @@ class IndexPage extends Component {
 
                     </Card>
 
-                  </Content>
+                  </Layout.Content>
                 </Layout>
                 </Layout>
               </Col>
@@ -120,7 +106,6 @@ class IndexPage extends Component {
         </Layout>
       </Layout>
     )
-    let iconArr = data.config.icon;
   }
 }
 

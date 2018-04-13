@@ -12,7 +12,7 @@ const config = {
    /* 'js/app': './src/home',
     'js/product': './src/product',*/
     // 将所有公用的东西都放在一个文件里
-    common: ['react', 'react-dom']
+    common: ['react', 'react-dom', 'antd']
   },
   // 输出文件
   output: {
@@ -71,9 +71,9 @@ const config = {
   },
   plugins: [
     // 输出一个资源映射的json 似乎没有什么卵用
-    new ManifestPlugin({
+    /*new ManifestPlugin({
       fileName: 'manifest.json'
-    }),
+    }),*/
     // 清除dist下的文件
     // 每次编译的时候，将之前编译的清空
     new CleanWebpackPlugin(['dist']),
@@ -92,6 +92,14 @@ const config = {
      */
     new webpack.HotModuleReplacementPlugin(),
 
+    /**
+     * 压缩
+     */
+    new  webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    })
   ],
 
   // 如果命令行中配置了--port 则会优先命令行

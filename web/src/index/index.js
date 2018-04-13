@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import { Layout, Menu, Breadcrumb, Icon, Carousel, Row, Col, Card } from 'antd';
-const { SubMenu } = Menu;
-const { Header, Content, Sider } = Layout;
-const { Meta } = Card;
+import { Layout, Carousel, Row, Col, Card } from 'antd'
+import HeaderView from '../../component/headerView'
 import RootView from '../script/common'
 import func from './behavior'
 import './style.less'
@@ -41,26 +39,9 @@ class IndexPage extends RootView {
     console.log(this)
     return (
       <Layout>
-        <Header  className="header" style={{ height: '40px' , display: 'flex'}}>
-          <div className="logo"  style={{ width: '120px' }}><i className="fa fa-lemon-o"/></div>
-          <Menu
-            theme="dark"
-            mode="horizontal"
-            defaultSelectedKeys={['0']}
-            style={{ lineHeight: '40px' }}
-            onSelect={_this._changeMenu}
-          >
-            {
-              menu && (
-                menu.map((item, i) => (
-                  <Menu.Item key={i}>{item}</Menu.Item>
-                ))
-              )
-            }
-          </Menu>
-        </Header>
+        <HeaderView/>
         <Layout>
-          <Content style={{ background: '#fff', padding: 0, margin: 0 }}>
+          <Layout.Content style={{ background: '#fff', padding: 0, margin: 0 }}>
             <Carousel autoplay>
               {
                 banner && (
@@ -96,13 +77,23 @@ class IndexPage extends RootView {
                 {
                   products && (
                     products.map((item, i) => {
-                      let width = `calc(${100/4}% - 8px)`
+                      let width = `calc(100% - 8px)`
+
+                      if(window.innerWidth > 800) {
+                        width = `calc(${100/2}% - 8px)`
+                      }
+
+                      if(window.innerWidth > 1024) {
+                        width = `calc(${100/4}% - 8px)`
+                      }
+
                       if(window.innerWidth > 1280) {
                         width = `calc(${100/5}% - 8px)`
                       }
                       if(window.innerWidth > 1600){
                         width = `calc(${100/6}% - 8px)`
                       }
+
                       return (
                         <Card
                           key={i}
@@ -110,7 +101,7 @@ class IndexPage extends RootView {
                           onClick={() => window.location.href = `./product-item.html?${item._id}` }
                           style={{ width, margin: '4px' }}
                           cover={<img alt="example" src={item.images[0]} />}>
-                          <Meta title={item.name} description="www.instagram.com"/>
+                          <Card.Meta title={item.name} description="www.instagram.com"/>
                         </Card>
                       )
                     })
@@ -118,7 +109,7 @@ class IndexPage extends RootView {
                 }
               </Col>
             </Row>
-          </Content>
+          </Layout.Content>
         </Layout>
       </Layout>
     )

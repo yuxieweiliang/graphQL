@@ -1,0 +1,22 @@
+{
+  "name": "admin",
+  "version": "1.0.0",
+  "description": "study for webpack",
+  "main": "yufei.xue",
+  "scripts": {
+    "dev": "webpack-dev-server --port 8089 --open --watch --color",
+    "build": "webpack --watch",
+    "test": "npm run start"
+  },
+  "keywords": [
+    "webpack",
+    "study"
+  ],
+  "author": "yufei.xue",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.5.0",
+    "koa-router": "^7.4.0",
+    "koa-static": "^4.0.2"
+  }
+}

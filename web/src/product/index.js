@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import { Layout, Menu, Breadcrumb, Tabs, Tag, Row, Col, Card } from 'antd';
+import { Layout, Row, Col, Card } from 'antd';
+import HeaderView from '../../component/headerView'
 import func from './behavior'
 import './style.less'
-const { SubMenu } = Menu;
-const { Header, Content, Sider } = Layout;
 const { Meta } = Card;
 import RootView from '../script/common'
-const CheckableTag = Tag.CheckableTag;
 
 class IndexPage extends RootView {
   constructor(props) {
@@ -23,22 +21,9 @@ class IndexPage extends RootView {
     console.log(products);
     return (
       <Layout>
-        <Header className="header" style={{ height: '40px' , display: 'flex'}}>
-          <div className="logo"  style={{ width: '120px' }}><i className="fa fa-lemon-o"/></div>
-          <Menu
-            theme="dark"
-            mode="horizontal"
-            defaultSelectedKeys={['1']}
-            style={{ lineHeight: '40px' }}
-          >
-            <Menu.Item key="0">网站首页</Menu.Item>
-            <Menu.Item key="1">产品分类</Menu.Item>
-            <Menu.Item key="2">新闻资讯</Menu.Item>
-            <Menu.Item key="3">关于我们</Menu.Item>
-          </Menu>
-        </Header>
+        <HeaderView defaultMenuKey="1"/>
         <Layout>
-          <Content style={{ background: '#fff', padding: 0, margin: 0 }}>
+          <Layout.Content style={{ background: '#fff', padding: 0, margin: 0 }}>
             <Row className="hospital-advantage">
               <Col >
                 <div className="poster" style={{height: 200, overflow: 'hidden'}}>
@@ -92,7 +77,7 @@ class IndexPage extends RootView {
 
               </Col>
             </Row>
-          </Content>
+          </Layout.Content>
         </Layout>
       </Layout>
     )
