@@ -13,6 +13,10 @@ function addMapping(router, mapping) {
   // var files = fs.readdirSync(mapping);
 
   for (let url in mapping) {
+
+
+    console.log(url)
+
     if (url.startsWith('GET ')) {
       let path = url.substring(4);
       router.get(path, mapping[url]);
@@ -77,5 +81,5 @@ function addControllers(router, dirs) {
 module.exports = function(dir) {
   const ctrl_dirs = dir || path.join(__dirname, './controllers/')
   addControllers(router, ctrl_dirs)
-  return router.routes()
+  return router
 };

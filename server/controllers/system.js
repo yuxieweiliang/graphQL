@@ -3,7 +3,7 @@ import queryString from 'query-string'
 import mongoose from 'mongoose';
 import bodyData from '../bodyData'
 const User = mongoose.model('User')
-
+import { graphqlKoa, graphiqlKoa } from 'graphql-server-koa'
 /**
  * 注册
  */
@@ -13,6 +13,10 @@ const register = async (ctx) => {
   let users = await  User.findOne({'account.username': data.username });
 
   console.log('register')
+
+
+
+
   if(_.isEmpty(users)) {
     let createUser = await User.create({ account: data});
 
@@ -60,5 +64,8 @@ const token = async (ctx) => {
 module.exports = {
   'GET /system/token': token,
   'POST /system/register': register,
-  'GET /system/login': login
+  'GET /system/login': login,
+  'GET /graphiql': async (ctx, next) => {
+    await graphiqlKoa({endpointURL: '/graphql'})(ctx, next)
+  },
 };

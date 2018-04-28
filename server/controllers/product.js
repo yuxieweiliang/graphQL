@@ -4,9 +4,13 @@ import path from 'path'
 import config from '../config'
 import bodyData from '../bodyData'
 import { uploadFile } from '../update'
-
+import { graphqlKoa, graphiqlKoa } from 'graphql-server-koa'
+import schema from '../schema/product'
 const Product = mongoose.model('Product');
 const Classify = mongoose.model('Classify');
+
+
+
 
 function createResponse(obj) {
   return JSON.stringify({
@@ -25,7 +29,7 @@ function execProduct(product) {
 }
 
 
-async function product(ctx) {
+/*async function product(ctx) {
   let params = ctx.request.query || ctx.query
   let products = null
   if(params._id) {
@@ -45,6 +49,14 @@ async function product(ctx) {
   ctx.body = JSON.stringify({
     data: products
   });
+}*/
+async function product(ctx, next) {
+  let params = ctx.request.query || ctx.query
+  let products = null
+  console.log('-----f----------')
+
+  return await graphqlKoa({schema: schema})(ctx, next)
+
 }
 
 async function pushProductToClass(_id, products) {

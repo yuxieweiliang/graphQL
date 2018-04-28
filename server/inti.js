@@ -45,6 +45,8 @@ jwt(app);
  redis(app);
 
 ///      使用路由
-app.use(controllers());
+const controller = controllers()
+app.use(controller.routes());
+app.use(controller.allowedMethods());
 
 app.listen(8000);
